@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReportController!{% endblock %}
+
+{% block body %}
+    <div class="organisms">
+        <div class="container mt-5 pt-5 mb-5 pb-5">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="page-title">
+                        Les organismes
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for organism in organisms %}
+                    <div class="col-md-4 mb-5">
+                        {% include './organisms/organismsCard.html.twig' with {'organism': organism} %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

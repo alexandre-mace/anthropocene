@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'tt_normsregular';
+    src: url('./font/ttnorms-regular-webfont.woff2') format('woff2'),
+    url('./font/ttnorms-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_normsbold';
+    src: url('./font/ttnorms-bold-webfont.woff2') format('woff2'),
+    url('./font/ttnorms-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'tt_normsregular', sans-serif;
+}
+header {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+}
+header a {
+    text-decoration: none;
+}
+a {
+    color: black;
+}
+.my-10 {
+    margin-top: 18rem;
+    margin-bottom: 10rem;
+}
+.mb-10 {
+    margin-bottom: 18rem;
+}
+.bold {
+    font-family: 'tt_normsbold', sans-serif;
+}
+.card {
+    padding: 50px 30px;
+    background-color: #e5e5e5;
+    border-radius: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card-title {
+    font-family: 'tt_normsbold', sans-serif;
+    font-size: calc(12px + 0.7vw);
+}
+.card-author {
+    transform: translateY(-10px);
+    font-size: calc(12px + 0.5vw);
+    white-space: nowrap;
+}
+.default-text {
+    font-size: calc(12px + 0.7vw);
+}
+.head-title {
+    font-size: calc(12px + 4vw);
+    font-weight: bold;
+    font-family: 'tt_normsbold', sans-serif;
+    /*color: rgba(245,239,215,0);*/
+    /*-webkit-text-stroke: 2px black;*/
+    /*-webkit-text-stroke-color: black;*/
+}
+.reports, .organisms, .ressources {
+    overflow: auto;
+    position: relative;
+}
+.reports::before, .organisms::before, .ressources::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 100%;
+    height: 100%;
+}
+.reports::before {
+    background-image: url('./img/write.png');
+}
+.organisms::before {
+    background-image: url('./img/explore.png');
+    background-size: 36%;
+}
+.ressources::before {
+    background-image: url('./img/read.png');
+    background-size: 36%;
+}
+.ghost-image {
+    height: 1px;
+}
+.flip-image {
+    -webkit-transform: scaleX(-1)translate(33vw);
+    transform: scaleX(-1) translate(33vw);
+}
+.visits {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: black;
+}
+iframe {
+    border-radius: 30px;
+}
+.card iframe {
+    width: calc(100% + 60px);
+    transform: translate(-30px, 5px);
+
+}
+.card-link {
+    font-size: 1.2rem;
+    margin-top: auto;
+}
+.page-title {
+    font-size: calc(12px + 3vw);
+    font-weight: bold;
+    font-family: 'tt_normsbold', sans-serif;
+}
+.home-head-title {
+    transform: translateY(10vh);
+}
+.main-line {
+    font-size: calc(12px + 1.5vw);
+    font-weight: bold;
+    font-family: 'tt_normsbold', sans-serif;
+    transform: translateY(10vh);
+}
+.head-image {
+    transform: translateX(-13vw);
+}
+.head-image img {
+    max-width: 60vw;
+}
+.page-image img {
+    max-width: 30vw;
+}
+.main-image img {
+    max-width: 30vw;
+}

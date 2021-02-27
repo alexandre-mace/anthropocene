@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-author">
+        {{ report.author }}
+    </div>
+    <div class="card-title mb-4">
+        {{ report.title }}
+    </div>
+        {% for reportLink in report.links %}
+            <div class="card-link mb-3">
+                <a href="{{ reportLink.link }}">{{ reportLink.title }}</a>
+            </div>
+        {% endfor %}
+</div>

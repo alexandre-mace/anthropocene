@@ -1,0 +1,19 @@
+<div class="card {% if ressource.link is defined and 'youtube' in ressource.link %}pb-0{% endif %}">
+    <div class="card-author">
+        {{ ressource.author }}
+    </div>
+    <div class="card-title mb-4">
+        {{ ressource.title }}
+    </div>
+    <div class="card-content">
+        {% if ressource.link is defined and 'youtube' in ressource.link %}
+            <iframe width="100%" height="315"
+                    src="{{ ressource.link|replace({'watch?v=': '/embed/'}) }}">
+            </iframe>
+        {% else %}
+            <div class="card-link mb-3">
+                <a href="{{ ressource.link }}">Voir la ressource</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

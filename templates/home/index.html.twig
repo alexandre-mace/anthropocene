@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="container my-10 mt-5">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="head-title home-head-title">
+                    L'Antropocène et ses études
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="head-image">
+                    <img src="{{ asset('img/bike.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-10 pb-5">
+        <div class="row pb-5">
+            <div class="main-image ghost-image flip-image">
+                <img src="{{ asset('img/explore.png') }}" alt="">
+            </div>
+            <div class="col-md-12">
+                <div class="main-line text-left">
+                    L'Anthropocène est une époque de l'histoire de la Terre qui a été proposée pour caractériser l'ensemble des événements géologiques qui se sont produits depuis que les activités humaines ont une incidence globale significative sur l'écosystème terrestre.
+                    <br><br>Plusieurs enjeux impactants pour notre avenir en découlent.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main-line text-left">
+                    Savez-vous que des experts travaillent actuellement sur ces enjeux ?
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="main-image">
+                    <img src="{{ asset('img/metrics.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main-image">
+                    <img src="{{ asset('img/write.png') }}" alt="">
+                </div>
+            </div>
+            <div class="col-md-5 pl-3">
+                <div class="main-line text-right">
+                   Ces travaux donnent vie à des rapports.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main-line text-right">
+                    Ces mêmes rapports sont accessibles pour tous en ligne.
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="main-image">
+                    <img src="{{ asset('img/read.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-10">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="main-image">
+                    <img src="{{ asset('img/walk.png') }}" alt="">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="main-line text-right">
+                    Voilà la raison d'existence cette plateforme : les regrouper au même endroit.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
