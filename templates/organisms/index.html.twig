@@ -3,7 +3,7 @@
 {% block title %}Hello ReportController!{% endblock %}
 
 {% block body %}
-    <div class="organisms">
+    <div class="organisms page-with-background" id="organisms">
         <div class="container mt-5 pt-5 mb-5 pb-5">
             <div class="row">
                 <div class="col-md-7">
@@ -13,8 +13,13 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container my-5">
             <div class="row">
+                {% include './listUtils/search.html.twig' %}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row list">
                 {% for organism in organisms %}
                     <div class="col-md-4 mb-5">
                         {% include './organisms/organismsCard.html.twig' with {'organism': organism} %}
@@ -23,4 +28,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        const options = {
+            valueNames: [ 'name' ],
+        };
+
+        const list = new List('organisms', options);
+    </script>
 {% endblock %}

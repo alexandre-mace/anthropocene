@@ -1,0 +1,35 @@
+<script>
+    function resetList(){
+        list.search();
+        list.filter();
+        list.update();
+        document.querySelector('.search').value = '';
+        document.querySelector('.filter').selectedIndex = 0;
+    };
+
+    function filterAuthor(author){
+        list.filter(function (item) {
+            if (author === 'default') {
+                return true
+            }
+            authorFilter = item.values().author === author;
+            return authorFilter
+        });
+        list.update();
+    }
+
+    const selectElement = document.querySelector('.filter');
+    selectElement.addEventListener('change', (event) => {
+        filterAuthor(event.target.value);
+    });
+
+    // fill select options
+    let authors = [];
+    list.items.forEach(function(item){
+        authors.push(item.values().author)
+    });
+    [...new Set(authors)].forEach(function(item){
+        const authorSelect = document.getElementById('author-select');
+        authorSelect.options[authorSelect.options.length] = new Option(item, item);
+    });
+</script>
