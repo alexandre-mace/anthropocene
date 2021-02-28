@@ -48,6 +48,7 @@ a {
 }
 iframe {
     border-radius: 30px;
+    border: none;
 }
 .card iframe {
     width: calc(100% + 60px);
