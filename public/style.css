@@ -239,6 +239,12 @@ button:focus, input:focus {
 .fadeInLoad {
     animation: fadeInLoad .6s cubic-bezier(0.855, -0.255, 1.000, 1.000);
 }
+.fadeInLoad-delayed {
+    animation: fadeInLoad .6s 0.8s cubic-bezier(0.855, -0.255, 1.000, 1.000);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; /* for less modern browsers */
+    opacity:0;
+}
 @keyframes fadeInLoad {
     from {
         opacity:0;
