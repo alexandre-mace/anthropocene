@@ -4,6 +4,7 @@
     url('./font/ttnorms-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     url('./font/ttnorms-bold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 /* general */
@@ -39,7 +41,7 @@ a {
     font-size: calc(12px + 0.7vw);
 }
 .head-title {
-    font-size: calc(12px + 4vw);
+    font-size: calc(12px + 3vw);
     font-weight: bold;
     font-family: 'tt_normsbold', sans-serif;
     /*color: rgba(245,239,215,0);*/
@@ -114,6 +116,7 @@ button:focus, input:focus {
 }
 .bold {
     font-family: 'tt_normsbold', sans-serif;
+    font-weight: bold;
 }
 .ghost-image {
     height: 1px;
@@ -229,4 +232,18 @@ button:focus, input:focus {
     position: relative;
     top: -11px;
     right: -4px;
+}
+
+/* animation */
+/***** Fade in on a page load *****/
+.fadeInLoad {
+    animation: fadeInLoad .6s cubic-bezier(0.855, -0.255, 1.000, 1.000);
+}
+@keyframes fadeInLoad {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
 }
