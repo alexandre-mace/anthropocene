@@ -46,7 +46,7 @@ a {
     border: none;
     display: inline-block;
     text-decoration: none;
-    transition: all .3s ease-out;
+    transition: background-color .3s ease-out;
 }
 a:hover {
     background-color: #F2F2F2;
@@ -82,9 +82,11 @@ iframe {
 .brand:hover {
     background-color: white;
 }
-.page-title * {
-    font-size: calc(12px + 3vw);
+.page-title *, .page-title {
     font-family: 'tt_normsbold', sans-serif;
+}
+.page-title {
+    font-size: calc(12px + 3vw);
 }
 .home-head-title {
     transform: translateY(10vh);
@@ -171,12 +173,15 @@ button:focus, input:focus {
 }
 /* card */
 .card {
-    padding: 15px 30px 50px 30px;
+    padding: 30px;
     background-color: #F2F2F2;
     border-radius: 30px;
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+.ressource-card {
+    padding: 15px 30px 50px 30px;
 }
 .card-type {
     font-size: calc(12px + 0.4vw);
@@ -186,8 +191,8 @@ button:focus, input:focus {
     font-size: calc(12px + 0.7vw);
 }
 .card-author {
-    transform: translateY(-10px);
-    font-size: calc(12px + 0.5vw);
+    font-size: calc(12px + 0.6vw);
+    margin-bottom: 0.5rem;
     white-space: nowrap;
 }
 /* page background */

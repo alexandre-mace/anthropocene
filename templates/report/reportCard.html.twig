@@ -6,7 +6,7 @@
         {{ report.title }}
     </div>
         {% for reportLink in report.links %}
-            <div class="card-link mb-3">
+            <div class="card-link">
                 <a href="{{ reportLink.link }}">{{ reportLink.title }}</a>
             </div>
         {% endfor %}
