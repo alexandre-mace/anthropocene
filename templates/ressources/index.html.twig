@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="ressources page-with-background" id="ressources">
-        <div class="container mt-5 pt-5 mb-5 pb-5">
+        <div class="container-fluid mt-5 pt-5 mb-5 pb-5">
             <div class="row">
                 <div class="col-md-7">
                     <div class="page-title">
@@ -13,14 +13,14 @@
                 </div>
             </div>
         </div>
-        <div class="container my-5">
+        <div class="container-fluid my-5">
             <div class="row">
                 {% include './listUtils/search.html.twig' %}
                 {% include './listUtils/authorFilter.html.twig' %}
                 {% include './listUtils/reset.html.twig' %}
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row list">
                 {% for ressource in ressources %}
                     <div class="col-md-4 mb-5">

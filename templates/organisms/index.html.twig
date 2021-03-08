@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="organisms page-with-background" id="organisms">
-        <div class="container mt-5 pt-5 mb-5 pb-5">
+        <div class="container-fluid mt-5 pt-5 mb-5 pb-5">
             <div class="row">
                 <div class="col-md-7">
                     <div class="page-title">
@@ -13,12 +13,12 @@
                 </div>
             </div>
         </div>
-        <div class="container my-5">
+        <div class="container-fluid my-5">
             <div class="row">
                 {% include './listUtils/search.html.twig' %}
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row list">
                 {% for organism in organisms %}
                     <div class="col-md-4 mb-5">

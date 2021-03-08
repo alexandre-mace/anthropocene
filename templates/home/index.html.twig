@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container my-10 mt-5 main-section">
+    <div class="container-fluid my-10 mt-5 main-section">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="head-title home-head-title fadeInLoad">
-                    <h1>Les problèmes environnementaux <br> <span class="fadeInLoad-delayed">pour les nuls</span></h1>
+                    <h1>Les problèmes environnementaux <span class="fadeInLoad-delayed">pour les nuls</span></h1>
                 </div>
             </div>
             <div class="col-md-4">
@@ -15,26 +15,28 @@
             </div>
         </div>
     </div>
-    <div class="container mb-10 pb-5">
+    <div class="container-fluid mb-10 pb-5">
         <div class="row pb-5">
-            <div class="main-image ghost-image flip-image">
-                <img src="{{ asset('img/explore.png') }}" alt="">
+            <div class="col-md-5">
+                <div class="main-image flip-image flip-image-translate-back">
+                    <img src="{{ asset('img/explore.png') }}" alt="">
+                </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-7 pl-3">
                 <div class="main-line text-left">
                     <div class="d-inline">Les problèmes environnementaux sont un des plus grands enjeux de notre époque.
                         <br><br>S'y retrouver par rapport à la masse d'information et de désinformation peut paraitre difficile, voire effrayant.
-                        <br><br>Ici, nous mettons en lumière les sources pertinentes.
+                        <br><br>Ici, nous mettons en lumière des sources pertinentes.
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container my-10">
+    <div class="container-fluid my-10">
         <div class="row">
             <div class="col-md-7">
-                <div class="main-line text-left">
-                    <div class="d-inline">Savez-vous que des <h2>experts travaillent actuellement sur ces enjeux</h2></div> ?
+                <div class="main-line text-left px-5">
+                    <div class="d-inline">Savez-vous que des <h2>experts travaillent et publient actuellement sur ces enjeux</h2></div> ?
                 </div>
             </div>
             <div class="col-md-5">
@@ -44,25 +46,25 @@
             </div>
         </div>
     </div>
-    <div class="container my-10">
+    <div class="container-fluid my-10">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-5">
                 <div class="main-image">
                     <img src="{{ asset('img/write.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-md-5 pl-3">
-                <div class="main-line text-right">
+            <div class="col-md-7 pl-3">
+                <div class="main-line px-5">
                     Ces travaux donnent vie à des rapports.
                 </div>
             </div>
         </div>
     </div>
-    <div class="container my-10">
+    <div class="container-fluid my-10">
         <div class="row">
             <div class="col-md-7">
-                <div class="main-line text-right">
-                    Ces mêmes rapports sont accessibles pour tous en ligne.
+                <div class="main-line px-5">
+                    Ces mêmes rapports sont accessibles pour tous en ligne mais également repris et vulgarisé sous différents formats : vidéos, interviews, article, infographie...
                 </div>
             </div>
             <div class="col-md-5">
@@ -72,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="container my-10">
+    <div class="container-fluid my-10">
         <div class="row">
             <div class="col-md-5">
                 <div class="main-image">
@@ -80,27 +82,27 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <div class="main-line text-right">
-                    <div class="d-inline">Voilà la raison d'existence de cette plateforme : les <h3>regrouper au même endroit</h3>.</div>
-                    <div class="mt-3">
-                        <a href="{{ path('report') }}">
-                            <button class="big">
-                                <div class="bold">Voir les rapports</div>
-                            </button>
-                        </a>
-                    </div>
+                <div class="main-line text-right px-5">
+                    <div class="d-inline">Voilà la raison d'existence de cette plateforme : les <h3>regrouper ces ressources au même endroit</h3>.</div>
                     <div class="d-flex flex-wrap justify-content-end">
-                        <div class="mt-3 mr-3">
-                            <a href="{{ path('organisms') }}">
+                        <div class="mt-3 outlined-btn-wrapper">
+                            <a href="{{ path('ressources') }}">
                                 <button>
-                                    <div>Voir les organismes</div>
+                                    <div>Voir les ressources</div>
                                 </button>
                             </a>
                         </div>
-                        <div class="mt-3">
-                            <a href="{{ path('ressources') }}">
+                        <div class="mt-3 outlined-btn-wrapper">
+                            <a href="{{ path('report') }}">
+                                <button >
+                                    <div>Voir les rapports</div>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="mt-3 outlined-btn-wrapper">
+                            <a href="{{ path('organisms') }}">
                                 <button>
-                                    <div>Voir les ressources annexes</div>
+                                    <div>Voir les organismes</div>
                                 </button>
                             </a>
                         </div>

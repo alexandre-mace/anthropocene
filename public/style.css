@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'tt_normsregular';
-    src: url('./font/ttnorms-regular-webfont.woff2') format('woff2'),
-    url('./font/ttnorms-regular-webfont.woff') format('woff');
+    font-family: 'tt_normsmedium';
+    src: url('./font/ttnorms-medium-webfont.woff2') format('woff2'),
+    url('./font/ttnorms-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -17,12 +17,17 @@
 }
 
 /* general */
+* {
+    box-sizing: border-box;
+    font-family: 'tt_normsmedium', sans-serif;
+}
 body {
+    padding-right: 4.2vw;
+    padding-left: 4.2vw;
     overflow-x: hidden;
-    font-family: 'tt_normsregular', sans-serif;
 }
 header {
-    margin-top: 4rem;
+    margin-top: 2rem;
     font-size: 1.5rem;
 }
 h1, h2, h3 {
@@ -36,13 +41,21 @@ header a {
 }
 a {
     color: black;
+    padding: 14px 25px;
+    border-radius: 25px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    transition: all .3s ease-out;
+}
+a:hover {
+    background-color: #F2F2F2;
 }
 .default-text {
     font-size: calc(12px + 0.7vw);
 }
-.head-title {
-    font-size: calc(12px + 3vw);
-    font-weight: bold;
+.head-title * {
+    font-size: calc(12px + 4vw);
     font-family: 'tt_normsbold', sans-serif;
     /*color: rgba(245,239,215,0);*/
     /*-webkit-text-stroke: 2px black;*/
@@ -60,9 +73,17 @@ iframe {
     font-size: 1.2rem;
     margin-top: auto;
 }
-.page-title {
+.card a {
+    background-color: white;
+}
+.card a:hover {
+    background-color: white;
+}
+.brand:hover {
+    background-color: white;
+}
+.page-title * {
     font-size: calc(12px + 3vw);
-    font-weight: bold;
     font-family: 'tt_normsbold', sans-serif;
 }
 .home-head-title {
@@ -70,9 +91,26 @@ iframe {
 }
 .main-line {
     font-size: calc(12px + 1.5vw);
-    font-weight: bold;
-    font-family: 'tt_normsbold', sans-serif;
     transform: translateY(10vh);
+}
+.main-line *, .main-line {
+    font-family: 'tt_normsbold', sans-serif;
+}
+a button {
+    border: 3px solid #F2F2F2;
+    background-color: white;
+    transition: all .3s ease-out;
+    border-radius: 25px;
+}
+.outlined-btn-wrapper a {
+    padding: 0 10px;
+    text-decoration: none;
+}
+.outlined-btn-wrapper a:hover {
+    background-color: inherit;
+}
+a button:hover {
+    background-color: #F2F2F2;
 }
 .head-image {
     transform: translateX(-13vw);
@@ -119,19 +157,22 @@ button:focus, input:focus {
 }
 .bold {
     font-family: 'tt_normsbold', sans-serif;
-    font-weight: bold;
 }
 .ghost-image {
     height: 1px;
 }
 .flip-image {
-    -webkit-transform: scaleX(-1)translate(33vw);
-    transform: scaleX(-1) translate(33vw);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.flip-image-translate-back {
+    -webkit-transform: scaleX(-1)translate(10vw);
+    transform: scaleX(-1)translate(10vw);
 }
 /* card */
 .card {
     padding: 50px 30px;
-    background-color: #e5e5e5;
+    background-color: #F2F2F2;
     border-radius: 30px;
     height: 100%;
     display: flex;
@@ -187,8 +228,8 @@ button:focus, input:focus {
 /* visits */
 .visits {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 5px;
+    left: 5px;
     color: black;
 }
 

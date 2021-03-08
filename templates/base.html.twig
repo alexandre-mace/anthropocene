@@ -24,19 +24,19 @@
         <div class="visits">
             {{ visits.access.total }} visites
         </div>
-        <header class="container">
+        <header class="container-fluid">
             <div class="row">
                 <div class="col mr-auto">
-                    <a href="{{ path('home') }}" class="{% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a>
+                    <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a>
+                </div>
+                <div class="col-auto ml-auto">
+                    <a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a>
                 </div>
                 <div class="col-auto ml-auto">
                     <a href="{{ path('report') }}" class="{% if app.request.get('_route') == 'report' %}bold{% endif %}">Les rapports</a>
                 </div>
                 <div class="col-auto">
                     <a href="{{ path('organisms') }}" class="{% if app.request.get('_route') == 'organisms' %}bold{% endif %}">Les organismes</a>
-                </div>
-                <div class="col-auto ml-auto">
-                    <a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a>
                 </div>
     {#                <div class="col-auto">#}
     {#                    <a href="{{ path('blog') }}" class="{% if app.request.get('_route') == 'blog' %}bold{% endif %}">Le blog</a>#}
