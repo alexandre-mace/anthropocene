@@ -308,11 +308,25 @@ button:focus, input:focus {
 
 
 /* Coin flip */
+.coin-flip-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #dcffed;
+}
 #coin {
-    margin-bottom:100px;
+    margin-bottom: 5rem;
 }
 #coin-flip-button {
     display: inline-block;
+    color: white;
+    background-color: #72ffb7;
+    z-index: 30;
+    position: relative;
 }
 .animate-coin {
     animation: flip 1.4s 1;
@@ -320,14 +334,23 @@ button:focus, input:focus {
 @keyframes flip {
     0% {
         transform: scale3d(1,1,1) rotateX(0deg);
+        opacity: 0.09;
     }
     50% {
         transform: scale3d(2,2,2) rotateX(3600deg);
+        opacity: 0.09;
+    }
+    99% {
+        opacity: 0.15;
     }
     100% {
         transform: scale3d(1,1,1) rotateX(7200deg);
+        opacity: 1;
     }
 }
 .coin-flip-wrapper img {
     max-width:100%;
+    display: block;
+    position: relative;
+    z-index: 0;
 }
