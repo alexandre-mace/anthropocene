@@ -17,6 +17,7 @@
             <div class="row">
                 {% include './listUtils/search.html.twig' %}
                 {% include './listUtils/authorFilter.html.twig' %}
+                {% include './listUtils/typeFilter.html.twig' %}
                 {% include './listUtils/reset.html.twig' %}
             </div>
         </div>
@@ -35,10 +36,46 @@
 {% block bottom_scripts %}
     <script>
         const options = {
-            valueNames: [ 'author', 'title' ],
+            valueNames: ['author', 'title', 'type'],
         };
 
         const list = new List('ressources', options);
+        const activeFilters = [];
+
+        const filterList = () => {
+            list.filter(function (item) {
+                if (activeFilters.length > 0) {
+                    let shown = true;
+                    let mandatoryShown = false;
+                    let hasAtLeastOneTrueShown = false;
+                    activeFilters.forEach(function(filter) {
+                        if (item.values()[filter.type] !== filter.value) {
+                            shown = false;
+                        }
+                        if (filter.type ==='type' && item.values()[filter.type] === filter.value) {
+                            mandatoryShown = true
+                        }
+                        if (filter.type !== 'type' && item.values()[filter.type] === filter.value) {
+                            hasAtLeastOneTrueShown = true;
+                        }
+                        if (filter.type === 'author' && filter.value === 'default') {
+                            shown = true;
+                            hasAtLeastOneTrueShown = true;
+                        }
+                    });
+
+                    console.log(activeFilters)
+                    if (mandatoryShown && (activeFilters.filter(filter => filter.type !== 'type').length === 0 || hasAtLeastOneTrueShown)) {
+                        return true;
+                    }
+
+                    return shown;
+                }
+                return true;
+            });
+            list.update();
+        }
     </script>
     {% include './listUtils/authorScripts.html.twig' %}
+    {% include './listUtils/typeScripts.html.twig' %}
 {% endblock %}

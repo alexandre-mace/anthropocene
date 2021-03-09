@@ -1,0 +1,38 @@
+<script>
+    var filterFunctions = [];
+
+    // fill checkboxes
+    let types = [];
+    list.items.forEach(function(item){
+        types.push(item.values().type)
+    });
+
+    [...new Set(types)].forEach(function(item){
+        const typeCheckboxes = document.getElementById('type-checkboxes');
+        typeCheckboxes.insertAdjacentHTML(
+            'beforeend',
+            "<label class='filter mr-3'><input class='type-selector' type='checkbox' data-criteria='" + item + "'/><span></span>" + item + "</label>"
+        )
+    });
+
+    const typeSelectors = document.getElementsByClassName('type-selector');
+    console.log(typeSelectors);
+    [...typeSelectors].forEach((typeSelector) => {
+        typeSelector.addEventListener('change', (event) => {
+            const type = event.target.dataset['criteria'];
+            if (event.target.checked) {
+                filterType(type);
+            } else {
+                activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'type' && activeFilter.value === type), 1);
+            }
+            filterList();
+        });
+    })
+
+    const filterType = (type) => {
+        activeFilters.push({
+            type: 'type',
+            value: type
+        });
+    }
+</script>

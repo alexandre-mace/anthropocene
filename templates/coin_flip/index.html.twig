@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CoinFlipController!{% endblock %}
+
+{% block header %}{% endblock %}
+{% block body %}
+    <div class='container h-100 coin-flip-wrapper'>
+        <div class="row h-100">
+            <div class="col m-auto h-100 text-center">
+                <img id="featureCoin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>
+                <div id='coin'>
+                </div>
+                <button id='coin-flip-button'>
+                    Lancer la pièce
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var coin = document.getElementById('coin');
+        var button = document.getElementById('coin-flip-button');
+        var featureCoin = document.getElementById('featureCoin');
+
+        function coinToss() {
+            var x = Math.floor(Math.random() * 2);
+            if (x === 0) {
+                coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
+            } else {
+                coin.innerHTML = '<img class="tails animate-coin" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
+            }
+
+        }
+        button.onclick = function() {
+            coinToss();
+            featureCoin.remove();
+        }
+    </script>
+{% endblock %}
+

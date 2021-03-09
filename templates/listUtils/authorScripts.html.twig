@@ -8,14 +8,11 @@
     };
 
     function filterAuthor(author){
-        list.filter(function (item) {
-            if (author === 'default') {
-                return true
-            }
-            authorFilter = item.values().author === author;
-            return authorFilter
+        activeFilters.push({
+            type: 'author',
+            value: author
         });
-        list.update();
+        filterList();
     }
 
     const selectElement = document.querySelector('.filter');
