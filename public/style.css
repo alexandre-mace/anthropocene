@@ -143,7 +143,7 @@ a button:hover {
 .main-section {
     min-height: 90vh;
 }
-button:not(.gclose) {
+button {
     font-size: 1.2rem;
     padding: 14px 25px;
     border-radius: 25px;
@@ -152,6 +152,16 @@ button:not(.gclose) {
     color: #2e2e2e;
     text-decoration: none;
     background-color: #F2F2F2;
+}
+.gclose {
+    font-size: initial;
+    padding: initial;
+    border-radius: initial;
+    border: initial;
+    display: initial;
+    color: initial;
+    text-decoration: initial;
+    background-color: initial;
 }
 .big {
     font-size: 1.3rem;
