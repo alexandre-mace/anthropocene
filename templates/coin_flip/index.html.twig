@@ -5,7 +5,7 @@
 {% block header %}{% endblock %}
 {% block body %}
     <div class='coin-flip-wrapper'>
-        <div class="text-center m-auto d(f">
+        <div class="text-center m-auto">
             <img id="featureCoin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>
             <div id='coin'>
             </div>
@@ -23,10 +23,15 @@
 
         function coinToss() {
             var x = Math.floor(Math.random() * 2);
+            coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png" style="filter: brightness(0) contrast(0);"/>';
             if (x === 0) {
-                coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
+                setTimeout(() => {
+                    coin.innerHTML = '<img class="heads" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
+                }, 2000)
             } else {
-                coin.innerHTML = '<img class="tails animate-coin" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
+                setTimeout(() => {
+                    coin.innerHTML = '<img class="tails" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
+                }, 2000)
             }
 
         }

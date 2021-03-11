@@ -16,7 +16,6 @@
     });
 
     const typeSelectors = document.getElementsByClassName('type-selector');
-    console.log(typeSelectors);
     [...typeSelectors].forEach((typeSelector) => {
         typeSelector.addEventListener('change', (event) => {
             const type = event.target.dataset['criteria'];

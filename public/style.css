@@ -69,6 +69,16 @@ iframe {
     width: calc(100% + 60px);
     transform: translate(-30px, 5px);
 }
+.ressource-img {
+    width: calc(100% + 60px);
+    height: auto;
+    transform: translate(-30px, 5px);
+    border-radius: 30px;
+    border: none;
+}
+.ressource-img:hover {
+    cursor: pointer;
+}
 .card-link {
     font-size: 1.2rem;
     margin-top: auto;
@@ -93,7 +103,6 @@ iframe {
 }
 .main-line {
     font-size: calc(12px + 1.5vw);
-    transform: translateY(10vh);
 }
 .main-line *, .main-line {
     font-family: 'tt_normsbold', sans-serif;
@@ -104,6 +113,11 @@ a button {
     transition: all .3s ease-out;
     border-radius: 25px;
 }
+.text-link {
+    padding: 0;
+    text-decoration: underline;
+}
+
 .outlined-btn-wrapper a {
     padding: 0 10px;
     text-decoration: none;
@@ -129,7 +143,7 @@ a button:hover {
 .main-section {
     min-height: 90vh;
 }
-button {
+button:not('.gclose') {
     font-size: 1.2rem;
     padding: 14px 25px;
     border-radius: 25px;
@@ -329,23 +343,17 @@ button:focus, input:focus {
     position: relative;
 }
 .animate-coin {
-    animation: flip 1.4s 1;
+    animation: flip 2s 1;
 }
 @keyframes flip {
     0% {
         transform: scale3d(1,1,1) rotateX(0deg);
-        opacity: 0.09;
     }
     50% {
         transform: scale3d(2,2,2) rotateX(3600deg);
-        opacity: 0.09;
-    }
-    99% {
-        opacity: 0.15;
     }
     100% {
         transform: scale3d(1,1,1) rotateX(7200deg);
-        opacity: 1;
     }
 }
 .coin-flip-wrapper img {
