@@ -19,7 +19,9 @@
             </div>
         {% endif %}
         {% if ressource.type == 'Infographie' and ressource.image is not null %}
-            <img class="ressource-img glightbox" src="{{ asset('/files/image/' ~ ressource.image) }}" alt="{{ ressource.title }}">
+            <div class="d-flex justify-content-center mt-4">
+                <img class="ressource-img glightbox" src="{{ asset('/files/image/' ~ ressource.image) }}" alt="{{ ressource.title }}">
+            </div>
         {% endif %}
     </div>
 </div>
