@@ -29,7 +29,8 @@ class RessourceCrudController extends AbstractCrudController
                 'Video' => 'Video',
                 'Infographie' => 'Infographie',
                 'Article' => 'Article',
-                'Shot' => 'Shot',
+                'Fait' => 'fait',
+                'Livre' => 'livre',
             ]),
             TextAreaField::new('imageFile')->setFormType(VichFileType::class, [
                             'delete_label' => 'supprimer?'
