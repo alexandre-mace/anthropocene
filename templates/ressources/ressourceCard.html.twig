@@ -1,4 +1,4 @@
-<div class="card ressource-card {% if (ressource.link is defined and 'youtube' in ressource.link) or (ressource.type == 'Infographie') %}pb-0{% endif %}">
+<div class="card ressource-card {% if (ressource.link is defined and 'youtube' in ressource.link) or (ressource.image is not null) %}pb-0{% endif %}">
     <div class="text-right mb-3 card-type type">
         {{ ressource.type }}
     </div>
@@ -18,7 +18,7 @@
                 <a href="{{ ressource.link }}">Voir la ressource</a>
             </div>
         {% endif %}
-        {% if ressource.type == 'Infographie' and ressource.image is not null %}
+        {% if ressource.image is not null %}
             <div class="d-flex justify-content-center mt-4">
                 <img class="ressource-img glightbox" src="{{ asset('/files/image/' ~ ressource.image) }}" alt="{{ ressource.title }}">
             </div>

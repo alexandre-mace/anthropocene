@@ -21,6 +21,9 @@
     box-sizing: border-box;
     font-family: 'tt_normsmedium', sans-serif;
 }
+html {
+    overflow-x: hidden;
+}
 body {
     padding-right: 4.2vw;
     padding-left: 4.2vw;
@@ -99,7 +102,7 @@ iframe {
     font-size: calc(12px + 3vw);
 }
 .home-head-title {
-    transform: translateY(10vh);
+    transform: translateY(4vh);
 }
 .main-line {
     font-size: calc(12px + 1.5vw);
@@ -174,8 +177,11 @@ button:focus, input:focus {
     outline: none;
 }
 /* utils */
+.overflow-hidden {
+    overflow: hidden;
+}
 .my-10 {
-    margin-top: 18rem;
+    margin-top: 8rem;
     margin-bottom: 10rem;
 }
 .mb-10 {
@@ -373,4 +379,180 @@ button:focus, input:focus {
     display: block;
     position: relative;
     z-index: 0;
+}
+
+
+/* Mobile menu */
+#site-menu li, #site-menu p {
+    padding: 10px;
+    margin: 0;
+    color: #000000;
+    text-decoration: none;
+    text-transform: none;
+    list-style: none;
+    display: none;
+    text-align: center;
+    transition: all .5s;
+    font-size: calc(20px + (20 - 18) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.mobile-menu [type="checkbox"]:checked, .mobile-menu [type="checkbox"]:not(:checked) {
+    display: none;
+}
+.mobile-menu  .menu-button {
+    position: fixed;
+    right:0;
+    top:0;
+    z-index: 100;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.mobile-menu .line {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.line:nth-child(1) {
+    top: 35%;
+}
+
+.line:nth-child(2) {
+    top: 45%;
+}
+
+.line:nth-child(3) {
+    top: 55%;
+}
+
+.menu-button:hover .line::after {
+    transform: translateX(0);
+}
+
+.menu-button .line::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    transform: translateX(100%);
+    transition: all 0.25s ease;
+}
+
+#menu-toggle:checked + .menu-button  {
+    transform: rotate(180deg);
+    transition: transform .2s ease;
+}
+
+#menu-toggle:checked + #menu-button .line:nth-child(1){
+    transform: translateY(5px) rotate(45deg);/*45deg*/
+}
+
+
+#menu-toggle:checked + #menu-button .line:nth-child(2) {
+    transform: scaleX(0);
+    opacity:0;
+}
+
+#menu-toggle:checked + #menu-button .line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);/* -45deg*/
+}
+
+
+#menu-toggle:checked + #menu-button + #site-menu{
+    animation: menu-open .5s ease both;
+
+}
+
+#menu-toggle:checked + #menu-button + #site-menu ul > li, #site-menu p {
+    display: block;
+    animation: menu-txt-open .5s ease both;
+}
+
+
+#site-menu {
+    position: absolute;
+    width: 0px;
+    height: 100vh;
+    right:0px;
+    top:0px;
+    z-index: 10;
+    margin: 0px;
+    padding: 0px;
+    background-color: #fff;
+    animation: menu-closed .3s both;
+    transition: .2s;
+}
+
+#site-menu-titles{
+    position: absolute;
+    width: 100%;
+    padding-left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+@keyframes menu-open {
+    100% {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+@keyframes menu-closed {
+    0% {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+@keyframes menu-txt-open {
+    0%, 70% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+
+/* mobile */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    .my-10 {
+        margin-top: 5rem;
+        margin-bottom: 9rem;
+    }
+    .main-section {
+        min-height: 30vh;
+    }
+    .head-title * {
+        font-size: calc(14px + 6vw);
+    }
+    .head-image {
+        transform: translateX(45vw);
+    }
+    .mb-10 {
+        margin-bottom: 7rem;
+    }
+    .main-image img {
+        max-width: 60vw;
+    }
 }
