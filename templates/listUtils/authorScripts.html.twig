@@ -17,6 +17,10 @@
 
     const selectElement = document.querySelector('.filter');
     selectElement.addEventListener('change', (event) => {
+        const potentialIndexToRemove = activeFilters.findIndex((activeFilter) => activeFilter.type === 'author');
+        if (potentialIndexToRemove !== -1) {
+            activeFilters.splice(potentialIndexToRemove, 1);
+        }
         filterAuthor(event.target.value);
     });
 

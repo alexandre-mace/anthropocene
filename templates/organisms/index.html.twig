@@ -37,5 +37,39 @@
         };
 
         const list = new List('organisms', options);
+        const activeFilters = [];
+
+        const filterList = () => {
+            list.filter(function (item) {
+                if (activeFilters.length > 0) {
+                    let shown = true;
+                    let mandatoryShown = false;
+                    let hasAtLeastOneTrueShown = false;
+                    activeFilters.forEach(function (filter) {
+                        if (item.values()[filter.type] !== filter.value) {
+                            shown = false;
+                        }
+                        if (filter.type === 'type' && item.values()[filter.type] === filter.value) {
+                            mandatoryShown = true
+                        }
+                        if (filter.type !== 'type' && item.values()[filter.type] === filter.value) {
+                            hasAtLeastOneTrueShown = true;
+                        }
+                        if (filter.type === 'author' && filter.value === 'default') {
+                            shown = true;
+                            hasAtLeastOneTrueShown = true;
+                        }
+                    });
+
+                    if (mandatoryShown && (activeFilters.filter(filter => filter.type !== 'type').length === 0 || hasAtLeastOneTrueShown)) {
+                        return true;
+                    }
+
+                    return shown;
+                }
+                return true;
+            });
+            list.update();
+        }
     </script>
 {% endblock %}

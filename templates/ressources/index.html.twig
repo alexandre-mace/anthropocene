@@ -64,7 +64,6 @@
                         }
                     });
 
-                    console.log(activeFilters)
                     if (mandatoryShown && (activeFilters.filter(filter => filter.type !== 'type').length === 0 || hasAtLeastOneTrueShown)) {
                         return true;
                     }

@@ -39,6 +39,24 @@
         };
 
         const list = new List('reports', options);
+        const activeFilters = [];
+
+        const filterList = () => {
+            list.filter(function (item) {
+                if (activeFilters.length > 0) {
+                    let shown = true;
+                    activeFilters.forEach(function (filter) {
+                        if (item.values()[filter.type] !== filter.value) {
+                            shown = false;
+                        }
+                    });
+
+                    return shown;
+                }
+                return true;
+            });
+            list.update();
+        }
     </script>
     {% include './listUtils/authorScripts.html.twig' %}
 {% endblock %}
