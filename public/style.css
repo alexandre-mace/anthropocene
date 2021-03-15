@@ -23,15 +23,26 @@
 }
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 body {
     padding-right: 4.2vw;
     padding-left: 4.2vw;
     overflow-x: hidden;
+    margin: 0;
 }
 header {
     margin-top: 2rem;
     font-size: 1.2rem;
+}
+footer {
+    background-color: #F2F2F2;
+    transform: translateX(-4.2vw);
+    padding: 4.2vw;
+    width: 100vw !important;
+}
+#scroll-to-top {
+    background-color: white;
 }
 h1, h2, h3 {
     font-size: inherit;
@@ -44,7 +55,7 @@ header a {
 }
 a {
     color: black;
-    padding: 14px 25px;
+    padding: 8px 20px;
     border-radius: 25px;
     border: none;
     display: inline-block;
@@ -94,6 +105,14 @@ iframe {
 .brand:hover {
     background-color: white;
 }
+footer .brand {
+    font-size: 1.2rem;
+}
+footer a {
+    padding: 0;
+    font-size: 1.1rem;
+    font-family: 'tt_normsbold', sans-serif;
+}
 .page-title *, .page-title {
     font-family: 'tt_normsbold', sans-serif;
 }
@@ -104,7 +123,7 @@ iframe {
     transform: translateY(4vh);
 }
 .main-line {
-    font-size: calc(12px + 1.5vw);
+    font-size: calc(12px + 1.2vw);
 }
 .main-line *, .main-line {
     font-family: 'tt_normsbold', sans-serif;
@@ -324,6 +343,12 @@ button:focus, input:focus {
 }
 .fadeInLoad-delayed {
     animation: fadeInLoad .6s 0.8s cubic-bezier(0.855, -0.255, 1.000, 1.000);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; /* for less modern browsers */
+    opacity:0;
+}
+.fadeInLoad-header-delayed {
+    animation: fadeInLoad .6s 0.4s cubic-bezier(0.855, -0.255, 1.000, 1.000);
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards; /* for less modern browsers */
     opacity:0;
