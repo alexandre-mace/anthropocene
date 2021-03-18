@@ -71,8 +71,8 @@
         {% block body %}{% endblock %}
         <footer class="mt-5">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-auto">
+                <div class="row align-items-center">
+                    <div class="col-9">
                         <div class="mb-3">
                             <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a>
                         </div>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="row mt-5">
-                    <div class="col-auto">
+                    <div class="col-auto mb-3 mb-md-0">
                         <a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a>
                     </div>
                     <div class="col-auto">

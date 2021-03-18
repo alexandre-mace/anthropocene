@@ -66,7 +66,10 @@ a:hover {
     background-color: #F2F2F2;
 }
 .default-text {
-    font-size: calc(12px + 0.7vw);
+    font-size: calc(12px + 0.6vw);
+}
+.infos {
+    min-height: calc(100vh - 230px);
 }
 .head-title * {
     font-size: calc(12px + 4vw);
@@ -163,6 +166,12 @@ a button:hover {
 }
 .main-section {
     min-height: 90vh;
+    position: relative;
+    z-index: 1;
+}
+header {
+    position: relative;
+    z-index: 10;
 }
 button {
     font-size: 1.2rem;
@@ -202,6 +211,9 @@ button:focus, input:focus {
     margin-top: 8rem;
     margin-bottom: 10rem;
 }
+.mt-10 {
+    margin-top: 10rem;
+}
 .mb-10 {
     margin-bottom: 18rem;
 }
@@ -237,10 +249,10 @@ button:focus, input:focus {
 }
 .card-title {
     font-family: 'tt_normsbold', sans-serif;
-    font-size: calc(12px + 0.7vw);
+    font-size: calc(12px + 0.6vw);
 }
 .card-author {
-    font-size: calc(12px + 0.6vw);
+    font-size: calc(14px + 0.3vw);
     margin-bottom: 0.5rem;
     white-space: nowrap;
 }
@@ -303,7 +315,7 @@ button:focus, input:focus {
     font-size: 1rem;
 }
 .sort, .filter, .reset {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 5px 15px;
     border-radius: 25px;
     max-width: 200px;
@@ -556,9 +568,35 @@ button:focus, input:focus {
 
 /* mobile */
 @media screen and (max-width: 768px) {
+    button {
+        padding: 6px 15px;
+        font-size: 1rem;
+    }
+    input[type='checkbox'] {
+        height: 23px;
+        width: 23px;
+    }
+    .sort, .filter, .reset {
+        font-size: 1rem;
+    }
+    #type-checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .filter {
+        display: flex;
+        margin-bottom: 0.4rem;
+        align-items: center;
+    }
+    .filter input {
+        margin-right: 0.5rem;
+    }
     body {
         padding: 0;
         margin: 0;
+    }
+    footer {
+        transform: none;
     }
     .my-10 {
         margin-top: 5rem;

@@ -11,6 +11,7 @@ class InfoController extends AbstractController
     #[Route('/info', name: 'info')]
     public function index(): Response
     {
+
         return $this->render('info/index.html.twig', [
             'controller_name' => 'InfoController',
         ]);
