@@ -5,6 +5,10 @@
         list.update();
         document.querySelector('.search').value = '';
         document.querySelector('.filter').selectedIndex = 0;
+        const typeSelectors = document.getElementsByClassName('type-selector');
+        [...typeSelectors].forEach((typeSelector) => {
+            typeSelector.checked = false;
+        })
     };
 
     function filterAuthor(author){
