@@ -85,6 +85,7 @@ iframe {
 .card iframe {
     width: calc(100% + 60px);
     transform: translate(-30px, 5px);
+    margin-top: auto;
 }
 .ressource-img {
     max-width: calc(100% + 60px);
@@ -324,6 +325,9 @@ button:focus, input:focus {
     color: #2e2e2e;
     text-decoration: none;
     background-color: #F2F2F2;
+}
+select.filter {
+    padding: 5px 0 5px 15px;
 }
 .sort.asc:after {
     width: 0;
@@ -573,11 +577,12 @@ button:focus, input:focus {
         font-size: 1rem;
     }
     input[type='checkbox'] {
-        height: 23px;
-        width: 23px;
+        height: 20px;
+        width: 20px;
     }
     .sort, .filter, .reset {
         font-size: 1rem;
+        max-width: 155px;
     }
     #type-checkboxes {
         display: flex;
@@ -585,7 +590,7 @@ button:focus, input:focus {
     }
     .filter {
         display: flex;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.8rem;
         align-items: center;
     }
     .filter input {
@@ -597,6 +602,13 @@ button:focus, input:focus {
     }
     footer {
         transform: none;
+        padding: 2rem 0;
+    }
+    .footer-scroll-to-top {
+        order: 1;
+    }
+    .footer-brand-section {
+        order: 2;
     }
     .my-10 {
         margin-top: 5rem;
@@ -616,5 +628,17 @@ button:focus, input:focus {
     }
     .main-image img {
         max-width: 60vw;
+    }
+    .reports::before {
+        background-size: 50%;
+    }
+    .organisms::before {
+        background-size: 35%;
+    }
+    .ressources::before {
+        background-size: 50%;
+    }
+    .infos::before {
+        background-size: 35%;
     }
 }
