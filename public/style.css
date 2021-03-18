@@ -523,7 +523,7 @@ select.filter {
 
 
 #site-menu {
-    position: absolute;
+    position: fixed;
     width: 0px;
     height: 100vh;
     right:0px;
