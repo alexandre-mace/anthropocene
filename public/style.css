@@ -604,12 +604,6 @@ select.filter {
         transform: none;
         padding: 2rem 0;
     }
-    .footer-scroll-to-top {
-        order: 1;
-    }
-    .footer-brand-section {
-        order: 2;
-    }
     .my-10 {
         margin-top: 5rem;
         margin-bottom: 9rem;
@@ -640,5 +634,14 @@ select.filter {
     }
     .infos::before {
         background-size: 35%;
+    }
+}
+@media screen and (max-width: 335px) {
+    .footer-scroll-to-top {
+        order: 1;
+    }
+
+    .footer-brand-section {
+        order: 2;
     }
 }
