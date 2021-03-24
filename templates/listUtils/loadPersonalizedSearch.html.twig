@@ -1,0 +1,35 @@
+<script>
+    themeFilters = [];
+    if (localStorage.getItem('themeFilters')) {
+        themeFilters = localStorage.getItem('themeFilters').split(',');
+    }
+
+    themeFilters.forEach((themeFilter) => {
+        [...themeSelector.options].forEach((option) => {
+            if (themeFilter === option.value.replace(/\s/g, "")) {
+                if (option.selected !== true) {
+                    option.setAttribute('selected', 'selected');
+                    filterTheme(option.value);
+                    filterList();
+                }
+            }
+        })
+    });
+
+    mediaFilters = [];
+    if (localStorage.getItem('mediaFilters')) {
+        mediaFilters = localStorage.getItem('mediaFilters').split(',');
+    }
+
+    mediaFilters.forEach((mediaFilter) => {
+        [...typeSelector.options].forEach((option) => {
+            if (mediaFilter === option.value.replace(/\s/g, "")) {
+                if (option.selected !== true) {
+                    option.setAttribute('selected', 'selected');
+                    filterType(option.value);
+                    filterList();
+                }
+            }
+        })
+    });
+</script>

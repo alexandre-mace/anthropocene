@@ -46,55 +46,13 @@
 
         const list = new List('ressources', options);
         const activeFilters = [];
-
-        const filterList = () => {
-            list.filter(function (item) {
-                if (activeFilters.length > 0) {
-                    let shown = true;
-                    let voteTypes = [];
-                    let votesFor = [];
-                    activeFilters.forEach(function(filter) {
-                        if (!voteTypes.includes(filter.type)) {
-                            voteTypes.push(filter.type)
-                        }
-
-                        if (item.values()[filter.type].includes(filter.value)) {
-                            votesFor.push(filter.type)
-                        }
-                    });
-
-                    return voteTypes.length === votesFor.length;
-                }
-                return true;
-            });
-            list.update();
-        }
     </script>
+    {% include './listUtils/filterList.html.twig' %}
     {% include './listUtils/authorScripts.html.twig' %}
     {% include './listUtils/typeScripts.html.twig' %}
     {% include './listUtils/themeScripts.html.twig' %}
+    {% include './listUtils/loadPersonalizedSearch.html.twig' %}
     <script>
-        if (localStorage.getItem('themeFilters')) {
-            const themeFilters = localStorage.getItem('themeFilters').split(',');
-        }
-
-        mediaFilters = [];
-        if (localStorage.getItem('mediaFilters')) {
-            mediaFilters = localStorage.getItem('mediaFilters').split(',');
-        }
-
-        mediaFilters.forEach((mediaFilter) => {
-            [...typeSelector.options].forEach((option) => {
-                if (mediaFilter === option.value.replace(/\s/g, "")) {
-                    if (option.selected !== true) {
-                        option.setAttribute('selected', 'selected');
-                        filterType(option.value);
-                        filterList();
-                    }
-                }
-            })
-        });
-
         new MultipleSelect('#select-multiple-format', {
             placeholder: 'Filtre par format',
         })
@@ -104,36 +62,6 @@
         new MultipleSelect('#select-multiple-theme', {
             placeholder: 'Filtre par thème',
         })
-
-        const selectPlaceholders = document.querySelectorAll('.select input[type="text"]');
-        [...selectPlaceholders].forEach((selectPlaceholder) => {
-            selectPlaceholder.placeholder = 'Rechercher'
-        })
-        const selectSelectedInfos = document.querySelectorAll('span.content');
-        [...selectSelectedInfos].forEach((selectSelectedInfo) => {
-            if (selectSelectedInfo.innerText.includes('selected')) {
-                selectSelectedInfo.innerText = selectSelectedInfo.innerText.replace('selected', 'selectionné(s)')
-            }
-        })
-        const targetNodes = document.getElementsByClassName('select');
-        const config = { attributes: true, childList: true, subtree: true };
-        const callback = function(mutationsList, observer) {
-            for(const mutation of mutationsList) {
-                if (mutation.type === 'childList') {
-                    mutation.addedNodes.forEach((addedNode) => {
-                        if (addedNode.innerText === 'No items.') {
-                            addedNode.textContent = 'Pas de résultats.'
-                        }
-                        if (addedNode.data.includes('selected')) {
-                            addedNode.data = addedNode.data.replace('selected', 'selectionné(s)')
-                        }
-                    })
-                }
-            }
-        };
-        [...targetNodes].forEach((targetNode) => {
-            const observer = new MutationObserver(callback);
-            observer.observe(targetNode, config);
-        });
     </script>
+    {% include './listUtils/multiselectInitializer.html.twig' %}
 {% endblock %}

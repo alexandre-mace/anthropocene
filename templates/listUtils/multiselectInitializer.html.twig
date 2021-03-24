@@ -1,0 +1,32 @@
+<script>
+    const selectPlaceholders = document.querySelectorAll('.select input[type="text"]');
+    [...selectPlaceholders].forEach((selectPlaceholder) => {
+        selectPlaceholder.placeholder = 'Rechercher'
+    })
+    const selectSelectedInfos = document.querySelectorAll('span.content');
+    [...selectSelectedInfos].forEach((selectSelectedInfo) => {
+        if (selectSelectedInfo.innerText.includes('selected')) {
+            selectSelectedInfo.innerText = selectSelectedInfo.innerText.replace('selected', 'selectionné(s)')
+        }
+    })
+    const targetNodes = document.getElementsByClassName('select');
+    const config = { attributes: true, childList: true, subtree: true };
+    const callback = function(mutationsList, observer) {
+        for(const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach((addedNode) => {
+                    if (addedNode.innerText === 'No items.') {
+                        addedNode.textContent = 'Pas de résultats.'
+                    }
+                    if (addedNode.data.includes('selected')) {
+                        addedNode.data = addedNode.data.replace('selected', 'selectionné(s)')
+                    }
+                })
+            }
+        }
+    };
+    [...targetNodes].forEach((targetNode) => {
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    });
+</script>

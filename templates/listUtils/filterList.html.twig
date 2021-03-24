@@ -1,0 +1,23 @@
+<script>
+    const filterList = () => {
+        list.filter(function (item) {
+            if (activeFilters.length > 0) {
+                let voteTypes = [];
+                let votesFor = [];
+                activeFilters.forEach(function(filter) {
+                    if (!voteTypes.includes(filter.type)) {
+                        voteTypes.push(filter.type)
+                    }
+
+                    if (item.values()[filter.type].includes(filter.value)) {
+                        votesFor.push(filter.type)
+                    }
+                });
+
+                return voteTypes.length === votesFor.length;
+            }
+            return true;
+        });
+        list.update();
+    }
+</script>
