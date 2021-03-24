@@ -1,6 +1,17 @@
 <div class="card ressource-card {% if (ressource.link is defined and 'youtube' in ressource.link) or (ressource.image is not null) %}pb-0{% endif %}">
-    <div class="text-right mb-3 card-type type">
-        {{ ressource.type }}
+    <div class="d-flex justify-content-between mb-3">
+        <div class="theme" data-theme="{{ ressource.themes|join(' ') }}">
+            {% if ressource.themes|length > 0 %}
+                {% for theme in ressource.themes %}
+                    <div class="d-inline card-theme theme mr-2">
+                        {{ theme }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="card-type type d-inline">
+            {{ ressource.type }}
+        </div>
     </div>
     <div class="card-author author">
         {{ ressource.author }}

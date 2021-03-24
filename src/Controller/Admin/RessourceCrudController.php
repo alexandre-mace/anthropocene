@@ -32,6 +32,15 @@ class RessourceCrudController extends AbstractCrudController
                 'Fait' => 'Fait',
                 'Livre' => 'Livre',
             ]),
+            ChoiceField::new('themes')->setChoices([
+                'Transport' => 'Transport',
+                'Énergie' => 'Énergie',
+                'Économie' => 'Économie',
+                'Collapsologie' => 'Collapsologie',
+                'Climat' => 'Climat',
+                'Habitat' => 'Habitat',
+                'Biodiversité' => 'Biodiversité',
+            ])->setFormTypeOption('multiple', true),
             TextAreaField::new('imageFile')->setFormType(VichFileType::class, [
                             'delete_label' => 'supprimer?'
                         ])->onlyOnForms(),

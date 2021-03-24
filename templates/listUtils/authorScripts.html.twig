@@ -1,16 +1,4 @@
 <script>
-    function resetList(){
-        list.search();
-        list.filter();
-        list.update();
-        document.querySelector('.search').value = '';
-        document.querySelector('.filter').selectedIndex = 0;
-        const typeSelectors = document.getElementsByClassName('type-selector');
-        [...typeSelectors].forEach((typeSelector) => {
-            typeSelector.checked = false;
-        })
-    };
-
     function filterAuthor(author){
         activeFilters.push({
             type: 'author',
@@ -19,22 +7,28 @@
         filterList();
     }
 
-    const selectElement = document.querySelector('.filter');
-    selectElement.addEventListener('change', (event) => {
-        const potentialIndexToRemove = activeFilters.findIndex((activeFilter) => activeFilter.type === 'author');
-        if (potentialIndexToRemove !== -1) {
-            activeFilters.splice(potentialIndexToRemove, 1);
-        }
-        filterAuthor(event.target.value);
-    });
-
     // fill select options
     let authors = [];
     list.items.forEach(function(item){
         authors.push(item.values().author)
     });
     [...new Set(authors)].forEach(function(item){
-        const authorSelect = document.getElementById('author-select');
+        const authorSelect = document.getElementById('select-multiple-author');
         authorSelect.options[authorSelect.options.length] = new Option(item, item);
     });
+
+    const authorSelector = document.getElementById('select-multiple-author');
+    authorSelector.addEventListener('change', (event) => {
+        [...event.target.options].forEach((option) => {
+            if (option.selected && activeFilters.findIndex((activeFilter) => activeFilter.type === 'author' && activeFilter.value === option.value) === -1) {
+                filterAuthor(option.value);
+            } else {
+                if (!option.selected && activeFilters.findIndex((activeFilter) => activeFilter.type === 'author' && activeFilter.value === option.value) !== -1) {
+                    activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'author' && activeFilter.value === option), 1);
+                }
+            }
+            filterList();
+        })
+    });
+
 </script>

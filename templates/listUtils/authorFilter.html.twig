@@ -1,10 +1,12 @@
+{#<div class="col-auto pr-0">#}
+{#    <button class="sort" data-sort="author">#}
+{#        Tri par auteur#}
+{#    </button>#}
+{#</div>#}
 <div class="col-auto pr-0">
-    <button class="sort" data-sort="author">
-        Tri par auteur
-    </button>
-</div>
-<div class="col-auto pl-2">
-    <select name="author-select" class="filter" id="author-select">
-        <option value="default">Filtre par auteur</option>
-    </select>
+    <div class="select">
+        <label for="select-multiple-author" class="mb-2 d-block">Auteur</label>
+        <select id="select-multiple-author" multiple>
+        </select>
+    </div>
 </div>

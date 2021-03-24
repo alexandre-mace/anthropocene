@@ -17,9 +17,10 @@
             <div class="row">
                 {% include './listUtils/search.html.twig' %}
             </div>
-            <div class="row">
+            <div class="row align-items-end">
                 {% include './listUtils/authorFilter.html.twig' %}
                 {% include './listUtils/typeFilter.html.twig' %}
+                {% include './listUtils/themeFilter.html.twig' %}
                 {% include './listUtils/reset.html.twig' %}
             </div>
         </div>
@@ -36,9 +37,11 @@
 {% endblock %}
 
 {% block bottom_scripts %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
+    <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
     <script>
         const options = {
-            valueNames: ['author', 'title', 'type'],
+            valueNames: ['author', 'title', 'type',  { name: 'theme', attr: 'data-theme' }],
         };
 
         const list = new List('ressources', options);
@@ -48,29 +51,19 @@
             list.filter(function (item) {
                 if (activeFilters.length > 0) {
                     let shown = true;
-                    let mandatoryShown = false;
-                    let hasAtLeastOneTrueShown = false;
+                    let voteTypes = [];
+                    let votesFor = [];
                     activeFilters.forEach(function(filter) {
-                        if (item.values()[filter.type] !== filter.value) {
-                            shown = false;
+                        if (!voteTypes.includes(filter.type)) {
+                            voteTypes.push(filter.type)
                         }
-                        if (filter.type ==='type' && item.values()[filter.type] === filter.value) {
-                            mandatoryShown = true
-                        }
-                        if (filter.type !== 'type' && item.values()[filter.type] === filter.value) {
-                            hasAtLeastOneTrueShown = true;
-                        }
-                        if (filter.type === 'author' && filter.value === 'default') {
-                            shown = true;
-                            hasAtLeastOneTrueShown = true;
+
+                        if (item.values()[filter.type].includes(filter.value)) {
+                            votesFor.push(filter.type)
                         }
                     });
 
-                    if (mandatoryShown && (activeFilters.filter(filter => filter.type !== 'type').length === 0 || hasAtLeastOneTrueShown)) {
-                        return true;
-                    }
-
-                    return shown;
+                    return voteTypes.length === votesFor.length;
                 }
                 return true;
             });
@@ -79,4 +72,68 @@
     </script>
     {% include './listUtils/authorScripts.html.twig' %}
     {% include './listUtils/typeScripts.html.twig' %}
+    {% include './listUtils/themeScripts.html.twig' %}
+    <script>
+        if (localStorage.getItem('themeFilters')) {
+            const themeFilters = localStorage.getItem('themeFilters').split(',');
+        }
+
+        mediaFilters = [];
+        if (localStorage.getItem('mediaFilters')) {
+            mediaFilters = localStorage.getItem('mediaFilters').split(',');
+        }
+
+        mediaFilters.forEach((mediaFilter) => {
+            [...typeSelector.options].forEach((option) => {
+                if (mediaFilter === option.value.replace(/\s/g, "")) {
+                    if (option.selected !== true) {
+                        option.setAttribute('selected', 'selected');
+                        filterType(option.value);
+                        filterList();
+                    }
+                }
+            })
+        });
+
+        new MultipleSelect('#select-multiple-format', {
+            placeholder: 'Filtre par format',
+        })
+        new MultipleSelect('#select-multiple-author', {
+            placeholder: 'Filtre par auteur',
+        })
+        new MultipleSelect('#select-multiple-theme', {
+            placeholder: 'Filtre par thème',
+        })
+
+        const selectPlaceholders = document.querySelectorAll('.select input[type="text"]');
+        [...selectPlaceholders].forEach((selectPlaceholder) => {
+            selectPlaceholder.placeholder = 'Rechercher'
+        })
+        const selectSelectedInfos = document.querySelectorAll('span.content');
+        [...selectSelectedInfos].forEach((selectSelectedInfo) => {
+            if (selectSelectedInfo.innerText.includes('selected')) {
+                selectSelectedInfo.innerText = selectSelectedInfo.innerText.replace('selected', 'selectionné(s)')
+            }
+        })
+        const targetNodes = document.getElementsByClassName('select');
+        const config = { attributes: true, childList: true, subtree: true };
+        const callback = function(mutationsList, observer) {
+            for(const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach((addedNode) => {
+                        if (addedNode.innerText === 'No items.') {
+                            addedNode.textContent = 'Pas de résultats.'
+                        }
+                        if (addedNode.data.includes('selected')) {
+                            addedNode.data = addedNode.data.replace('selected', 'selectionné(s)')
+                        }
+                    })
+                }
+            }
+        };
+        [...targetNodes].forEach((targetNode) => {
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, config);
+        });
+    </script>
 {% endblock %}

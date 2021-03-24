@@ -56,6 +56,11 @@ class Ressource
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $themes = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -130,6 +135,18 @@ class Ressource
     public function setImage($image):self
     {
         $this->image = $image;
+        return $this;
+    }
+
+    public function getThemes(): ?array
+    {
+        return $this->themes;
+    }
+
+    public function setThemes(?array $themes): self
+    {
+        $this->themes = $themes;
+
         return $this;
     }
 }

@@ -1,0 +1,159 @@
+{% set categories = [
+    {
+        'label': 'Tout',
+        'value': 'Tout',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/eye_1f441-fe0f.png',
+    },
+    {
+        'label': 'Transport',
+        'value': 'Transport',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/airplane_2708-fe0f.png',
+    },
+    {
+        'label': 'Énergie',
+        'value': 'Énergie',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/battery_1f50b.png',
+    },
+    {
+        'label': 'Économie',
+        'value': 'Économie',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/money-bag_1f4b0.png',
+    },
+    {
+        'label': 'Collapsologie',
+        'value': 'Collapsologie',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/chart-decreasing_1f4c9.png',
+    },
+    {
+        'label': 'Climat',
+        'value': 'Climat',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/thermometer_1f321-fe0f.png',
+    },
+    {
+        'label': 'Habitat',
+        'value': 'Habitat',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/house_1f3e0.png',
+    },
+    {
+        'label': 'Biodiversité',
+        'value': 'Biodiversité',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/deciduous-tree_1f333.png',
+    },
+] %}
+{% set formats = [
+    {
+        'label': 'Tout',
+        'value': 'Tout',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/eye_1f441-fe0f.png',
+    },
+    {
+        'label': 'Vidéo',
+        'value': 'Vidéo',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/television_1f4fa.png',
+    },
+    {
+        'label': 'Interview',
+        'value': 'Interview',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/microphone_1f3a4.png',
+    },
+    {
+        'label': 'Infographie',
+        'value': 'Infographie',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/artist-palette_1f3a8.png',
+    },
+    {
+        'label': 'Livre',
+        'value': 'Livre',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/open-book_1f4d6.png',
+    },
+    {
+        'label': 'Info rapide',
+        'value': 'Info rapide',
+        'img': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/speech-balloon_1f4ac.png',
+    }
+
+] %}
+<div class="mt-5">
+    <div class="fullscreen-block-wrapper fadeInLoad-header-delayed">
+        <input type="checkbox" id="search-toggle" class="fullscreen-block-checkbox"/>
+        <label for="search-toggle" class="fullscreen-block-label btn mt-3">Découvrir les ressources</label>
+        <div class="fullscreen-block">
+            <div class="fullscreen-block-content personalization-search personalization-part-1 toggle-content fadeIn is-visible container mt-5">
+                <div class="row">
+                    <div class="col text-right mb-5">
+                        <label for="search-toggle" class="fullscreen-block-label btn personalization-exit">Retour</label>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="page-title mb-2">Séléctionnez les thèmes qui vous intéressent</div>
+                    </div>
+                    <div class="col">
+                        <div>(Ne vous inquiètez pas, ce choix n'est pas définitif).</div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    {% for category in categories %}
+                        <div class="card-select-wrapper col-auto mb-4">
+                            <input type="checkbox" id="{{ category.value }}" value="{{ category.value }}" />
+                            <label for="{{ category.value }}" class="card-select">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="card-select-emoji-wrapper">
+                                        <img src="{{ category.img }}" alt="{{ 'Catégorie ' ~ category.label }}">
+                                    </div>
+                                    <div class="card-select-label mt-2">
+                                        {{ category.value }}
+                                    </div>
+                                </div>
+                            </label>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="personalization-next btn">Suivant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fullscreen-block-content personalization-search-media personalization-part-2 toggle-content container mt-5">
+                <div class="row">
+                    <div class="col text-right mb-5">
+                        <label for="search-toggle" class="fullscreen-block-label btn personalization-exit">Retour</label>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="page-title mb-2">Séléctionnez les formats qui vous correspondent</div>
+                    </div>
+                    <div class="col">
+                        <div>(Ne vous inquiètez pas, ce choix n'est pas définitif).</div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    {% for format in formats %}
+                        <div class="card-select-wrapper col">
+                            <input type="checkbox" id="{{ format.value }}" value="{{ format.value }}" />
+                            <label for="{{ format.value }}" class="card-select">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <div class="card-select-emoji-wrapper">
+                                        <img src="{{ format.img }}" alt="{{ 'Catégorie ' ~ format.label }}">
+                                    </div>
+                                    <div class="card-select-label mt-2">
+                                        {{ format.value }}
+                                    </div>
+                                </div>
+                            </label>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="personalization-final btn">Voir les ressources</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

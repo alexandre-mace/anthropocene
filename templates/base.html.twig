@@ -31,7 +31,7 @@
         <header class="container-fluid {% if app.request.get('_route') == 'home' %}fadeInLoad-header-delayed{% endif %}">
             <div class="row d-none d-md-flex">
                 <div class="col mr-auto">
-                    <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a>
+                    <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Source</a>
                 </div>
                 <div class="col-auto">
                     <a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a>
@@ -58,7 +58,7 @@
                 </label>
                 <div id="site-menu">
                     <ul id="site-menu-titles">
-                        <li><a href="{{ path('home') }}" class="brand {% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a></li>
+                        <li><a href="{{ path('home') }}" class="brand {% if app.request.get('_route') == 'home' %}bold{% endif %}">Source</a></li>
                         <li><a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a></li>
                         <li><a href="{{ path('report') }}" class="{% if app.request.get('_route') == 'report' %}bold{% endif %}">Les rapports</a></li>
                         <li><a href="{{ path('organisms') }}" class="{% if app.request.get('_route') == 'organisms' %}bold{% endif %}">Les organismes</a></li>
@@ -74,7 +74,7 @@
                 <div class="row align-items-center">
                     <div class="col-9 footer-brand-section">
                         <div class="mb-3">
-                            <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Transition</a>
+                            <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Source</a>
                         </div>
                         <div>
                             Plateforme de ressources sur l'environnement.
@@ -105,7 +105,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col">
-                        ©2021 Transition
+                        ©2021 Source
                     </div>
                 </div>
             </div>
@@ -117,15 +117,33 @@
         <script type="text/javascript">
             const lightbox = GLightbox();
             AOS.init();
+            let themeFilters = [];
+            let mediaFilters = [];
+
+            function resetList(){
+                list.search();
+                list.filter();
+                list.update();
+                document.querySelector('.search').value = '';
+                document.querySelector('.filter').selectedIndex = 0;
+                const typeSelectors = document.getElementsByClassName('type-selector');
+                [...typeSelectors].forEach((typeSelector) => {
+                    typeSelector.checked = false;
+                })
+            };
+
             const mobileMenuToggler = document.getElementById('menu-toggle')
-            if (mobileMenuToggler) {
-                mobileMenuToggler.addEventListener('change', (event) => {
-                    if (event.target.checked) {
-                        document.body.parentElement.style.overflowY = 'hidden'
-                    } else {
-                        document.body.parentElement.style.overflowY = 'auto'
-                    }
-                });
+            const fullscreenBlocks = document.getElementsByClassName('fullscreen-block-checkbox')
+            if (fullscreenBlocks.length > 0) {
+                [...fullscreenBlocks, mobileMenuToggler].forEach((fullscreenBlock) => {
+                    fullscreenBlock.addEventListener('change', (event) => {
+                        if (event.target.checked) {
+                            document.body.parentElement.style.overflowY = 'hidden'
+                        } else {
+                            document.body.parentElement.style.overflowY = 'auto'
+                        }
+                    });
+                })
             }
 
             function scrollToTop() {
@@ -141,6 +159,68 @@
                 scrollToTop();
             });
 
+            const personalizationNexts = document.getElementsByClassName('personalization-next');
+            if (personalizationNexts.length > 0) {
+                [...personalizationNexts].forEach((personalizationNext) => {
+                    personalizationNext.addEventListener('click', (event) => {
+                        const checkboxes = document.querySelectorAll(".personalization-search input[type=checkbox]");
+                        [...checkboxes].forEach((checkbox) => {
+                            if (checkbox.checked) {
+                                themeFilters.push(checkbox.value);
+                            }
+                        })
+
+                        const personalization1 = document.getElementsByClassName('personalization-part-1')[0];
+                        personalization1.classList.remove('is-visible');
+
+                        setTimeout(() => {
+                            const personalization2 = document.getElementsByClassName('personalization-part-2')[0];
+                            personalization2.classList.add('is-visible');
+                            setTimeout(() => {
+                                personalization2.classList.add('fadeIn');
+                            }, 500)
+                        }, 0)
+                    });
+                })
+            }
+
+            const personalizationExits = document.getElementsByClassName("personalization-exit");
+            if (personalizationExits.length > 0) {
+                [...personalizationExits].forEach((personalizationExit) => {
+                    personalizationExit.addEventListener('click', (event) => {
+                        const personalization2 = document.getElementsByClassName('personalization-part-2')[0];
+                        personalization2.classList.remove('is-visible');
+
+                        setTimeout(() => {
+                            const personalization1 = document.getElementsByClassName('personalization-part-1')[0];
+                            personalization1.classList.add('is-visible');
+                            setTimeout(() => {
+                                personalization1.classList.add('fadeIn');
+                            }, 500)
+                        }, 0)
+                    });
+                })
+            }
+
+            const personalizationFinal = document.getElementsByClassName('personalization-final')[0];
+            if (personalizationFinal) {
+                personalizationFinal.addEventListener('click', (event) => {
+                    const checkboxes = document.querySelectorAll(".personalization-search-media input[type=checkbox]");
+                    [...checkboxes].forEach((checkbox) => {
+                        if (checkbox.checked) {
+                            mediaFilters.push(checkbox.value);
+                        }
+                    })
+
+                    if (themeFilters.length > 0 && !themeFilters.includes('Tout')) {
+                        localStorage.setItem('themeFilters', themeFilters.join(','));
+                    }
+                    if (mediaFilters.length > 0 && !mediaFilters.includes('Tout')) {
+                        localStorage.setItem('mediaFilters', mediaFilters.join(','));
+                    }
+                    window.location.assign('/ressources')
+                })
+            }
         </script>
         {% block bottom_scripts %}{% endblock %}
     </body>
