@@ -34,6 +34,7 @@ body {
 header {
     margin-top: 2rem;
     font-size: 1.2rem;
+    z-index: 2;
 }
 footer {
     background-color: #F2F2F2;
@@ -156,6 +157,7 @@ a button {
     background-color: white;
     transition: all .3s ease-out;
     border-radius: 25px;
+    white-space: nowrap;
 }
 .text-link {
     padding: 0;
@@ -607,6 +609,7 @@ select.filter {
     background-color: #fff;
     animation: menu-closed .3s both;
     transition: .2s;
+    overflow: scroll;
 }
 #site-menu-titles{
     padding-left: 0;
@@ -713,6 +716,18 @@ select.filter {
     }
     .infos::before {
         background-size: 35%;
+    }
+    .card-select {
+        padding: 20px;
+        background-color: rgb(247, 247, 247);
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 130px;
+        width: 130px;
+        word-break: keep-all;
     }
 }
 @media screen and (max-width: 335px) {
