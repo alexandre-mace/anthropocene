@@ -29,7 +29,7 @@
             {{ visits.access.total }} visites
         </div>
         <header class="container-fluid {% if app.request.get('_route') == 'home' %}fadeInLoad-header-delayed{% endif %}">
-            <div class="row d-none d-md-flex">
+            <div class="row d-none d-md-flex align-items-center">
                 <div class="col mr-auto">
                     <a href="{{ path('home') }}" class="brand pl-0 {% if app.request.get('_route') == 'home' %}bold{% endif %}">Source</a>
                 </div>
@@ -58,7 +58,7 @@
                 </label>
                 <div id="site-menu">
                     <ul id="site-menu-titles">
-                        <li><a href="{{ path('home') }}" class="brand {% if app.request.get('_route') == 'home' %}bold{% endif %}">Source</a></li>
+                        <li><a href="{{ path('home') }}" class="{% if app.request.get('_route') == 'home' %}bold{% endif %}">Accueil</a></li>
                         <li><a href="{{ path('ressources') }}" class="{% if app.request.get('_route') == 'ressources' %}bold{% endif %}">Les ressources</a></li>
                         <li><a href="{{ path('report') }}" class="{% if app.request.get('_route') == 'report' %}bold{% endif %}">Les rapports</a></li>
                         <li><a href="{{ path('organisms') }}" class="{% if app.request.get('_route') == 'organisms' %}bold{% endif %}">Les organismes</a></li>
