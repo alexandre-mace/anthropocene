@@ -139,8 +139,10 @@
                     fullscreenBlock.addEventListener('change', (event) => {
                         if (event.target.checked) {
                             document.body.parentElement.style.overflowY = 'hidden'
+                            document.querySelector('header').style.zIndex = '1';
                         } else {
                             document.body.parentElement.style.overflowY = 'auto'
+                            document.querySelector('header').style.zIndex = '2';
                         }
                     });
                 })
