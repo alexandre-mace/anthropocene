@@ -696,8 +696,11 @@ select.filter {
     .head-title * {
         font-size: calc(14px + 6vw);
     }
+    .main-section label {
+        padding: 12px 23px;
+    }
     .head-image {
-        transform: translateX(45vw);
+        transform: translateX(7vw);
     }
     .mb-10 {
         margin-bottom: 7rem;
