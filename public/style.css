@@ -655,7 +655,6 @@ select.filter {
 /* mobile */
 @media screen and (max-width: 768px) {
     button, .btn {
-        padding: 6px 15px;
         font-size: 1rem;
     }
     input[type='checkbox'] {
