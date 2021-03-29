@@ -600,12 +600,13 @@ select.filter {
     position: fixed;
     display: flex;
     width: 0;
-    height: 100vh;
+    min-height: 100vh;
     right:0;
     top:0;
     z-index: 10;
     margin: 0;
     padding: 0;
+    padding-bottom: 3rem;
     background-color: #fff;
     animation: menu-closed .3s both;
     transition: .2s;
