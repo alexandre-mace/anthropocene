@@ -40,7 +40,7 @@ class ReportController extends AbstractController
                 'links'   => [
                     [
                         'link' => 'https://www.ipcc.ch/site/assets/uploads/sites/3/2020/07/SROCC_SPM_fr.pdf',
-                        'title' => 'Rapport spécial sur les océans et la cryosphère dans un monde dont le climat change (SROCC), 2019'
+                        'title' => 'Lien du rapport'
                     ],
                 ],
             ],
@@ -50,7 +50,7 @@ class ReportController extends AbstractController
                 'links'   => [
                     [
                         'link' => 'https://www.ipcc.ch/site/assets/uploads/sites/4/2020/06/SRCCL_SPM_fr.pdf',
-                        'title' => 'Rapport spécial sur le changement climatique et les terres émergées (SRCCL), 2019'
+                        'title' => 'Lien du rapport'
                     ],
                 ],
             ],
@@ -60,7 +60,7 @@ class ReportController extends AbstractController
                 'links'   => [
                     [
                         'link' => 'https://www.ipcc.ch/site/assets/uploads/sites/2/2019/09/IPCC-Special-Report-1.5-SPM_fr.pdf',
-                        'title' => "Rapport spécial sur les conséquences d'un réchauffement planétaire de 1,5 °C (SR15), 2018"
+                        'title' => "Lien du rapport"
                     ],
                 ],
             ],
