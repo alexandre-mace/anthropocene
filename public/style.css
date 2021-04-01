@@ -431,6 +431,15 @@ select.filter {
     background-color: black;
     color: white;
 }
+.white-button {
+    box-sizing: border-box;
+    transition: box-shadow .3s, border .2s;
+    border: 2px solid white;
+}
+.white-button:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 2px solid black;
+}
 .card-select-wrapper :checked + label {
     background-color: #F2F2F2;
 }
