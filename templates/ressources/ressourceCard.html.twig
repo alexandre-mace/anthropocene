@@ -19,7 +19,7 @@
     <div class="card-title mb-4 title">
         {{ ressource.title }}
     </div>
-    {% if ressource.link is not defined and 'youtube' not in ressource.link %}
+    {% if ressource.link is defined and 'youtube' not in ressource.link %}
         <div class="card-link mb-3">
             <a href="{{ ressource.link }}">Voir la ressource</a>
         </div>

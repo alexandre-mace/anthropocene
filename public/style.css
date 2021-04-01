@@ -425,6 +425,11 @@ select.filter {
 }
 .card-select-wrapper :checked + label {
     border: 2px solid black;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.main-action {
+    background-color: black;
+    color: white;
 }
 .card-select-wrapper :checked + label {
     background-color: #F2F2F2;
@@ -621,13 +626,13 @@ select.filter {
 }
 .toggle-content > * {
     opacity: 0;
-    transition: opacity .4s ease-in-out;
+    transition: opacity .3s ease-in-out;
 }
 .toggle-content.is-visible {
     display: block !important;
 }
 .toggle-content.fadeIn > * {
-    transition: opacity .4s ease-in-out;
+    transition: opacity .3s ease-in-out;
     opacity: 1;
 }
 
