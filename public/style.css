@@ -434,6 +434,10 @@ select.filter {
 .main-action {
     background-color: black;
     color: white;
+    transition: box-shadow .3s, border .2s;
+}
+.main-action:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .white-button {
     box-sizing: border-box;
