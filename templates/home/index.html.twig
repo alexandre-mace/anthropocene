@@ -26,7 +26,6 @@
         </div>
         <div class="row">
             {% for ressource in latestRessources %}
-                {% dump loop.index %}
                 <div class="col-12 col-sm-6 col-lg-4 mb-3 {% if loop.index == 3 %}d-none d-lg-block{% endif %}" data-aos="fade-up"  data-aos-delay="{{ 300 * loop.index}}">
                     {% include 'ressources/ressourceCard.html.twig' with {'ressource': ressource} %}
                 </div>
