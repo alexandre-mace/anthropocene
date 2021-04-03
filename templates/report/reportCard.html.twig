@@ -7,7 +7,7 @@
     </div>
         {% for reportLink in report.links %}
             <div class="card-link mb-3">
-                <a class="white-button" href="{{ reportLink.link }}">{{ reportLink.title }}</a>
+                <a class="white-button" target="_blank" href="{{ reportLink.link }}">{{ reportLink.title }}</a>
             </div>
         {% endfor %}
 </div>

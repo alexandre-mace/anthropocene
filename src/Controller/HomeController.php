@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Ressource;
 use App\Entity\Visits;
 use App\Repository\VisitsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,8 +29,16 @@ class HomeController extends AbstractController
             $session->set('visit', true);
         }
 
+        $latestRessources = $entityManager
+            ->getRepository(Ressource::class)
+            ->findBy(
+                [],
+                ['id' => 'DESC'],
+                3
+            );
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'latestRessources' => $latestRessources
         ]);
     }
 }
