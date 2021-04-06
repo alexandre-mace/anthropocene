@@ -80,7 +80,7 @@ a:hover {
     /*-webkit-text-stroke-color: black;*/
 }
 iframe {
-    border-radius: 30px;
+    border-radius: 18px;
     border: none;
 }
 .card iframe {
@@ -91,14 +91,14 @@ iframe {
 .ressource-img {
     height: 315px;
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 18px;
     border: none;
     position: absolute;
     top: 0;
     left: 50%;
 }
 .ressource-img-wrapper {
-    border-radius: 30px;
+    border-radius: 18px;
     height: 315px;
     position: relative;
     width: calc(100% + 40px);

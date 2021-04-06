@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row list">
                 {% for report in reports %}
-                    <div class="col-md-4 mb-4 mb-md-5">
+                    <div class="col-md-4 mb-4">
                         {% include './report/reportCard.html.twig' with {'report': report} %}
                     </div>
                 {% endfor %}
