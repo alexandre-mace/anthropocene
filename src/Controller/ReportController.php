@@ -19,19 +19,7 @@ class ReportController extends AbstractController
                     [
                         'link' => 'https://www.ipcc.ch/site/assets/uploads/2018/02/SYR_AR5_FINAL_full_fr.pdf',
                         'title' => 'Changements climatiques 2014 : rapport de synthèse'
-                    ],
-                    [
-                        'link' => 'https://www.ipcc.ch/site/assets/uploads/2018/03/WG1AR5_SummaryVolume_FINAL_FRENCH.pdf',
-                        'title' => 'Changements climatiques 2013 : les éléments scientifiques'
-                    ],
-                    [
-                        'link' => 'https://www.ipcc.ch/site/assets/uploads/2018/03/WGIIAR5-IntegrationBrochure_fr-1.pdf',
-                        'title' => 'Changements climatiques 2014 : les impacts, les vulnérabilités, l’adaptation'
-                    ],
-                    [
-                        'link' => 'https://www.ipcc.ch/site/assets/uploads/2018/03/WGIIIAR5_SPM_TS_Volume_fr-1.pdf',
-                        'title' => 'Changements climatiques 2014 : l’atténuation du changement climatique'
-                    ],
+                    ]
                 ],
             ],
             [
