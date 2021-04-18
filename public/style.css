@@ -88,8 +88,11 @@ iframe {
     transform: translate(-20px, 5px);
     margin-top: auto;
 }
+.ressources-wrapper {
+    min-height: 250px;
+}
 .ressource-img {
-    height: 315px;
+    height: 200px;
     overflow: hidden;
     border-radius: 18px;
     border: none;
@@ -99,7 +102,7 @@ iframe {
 }
 .ressource-img-wrapper {
     border-radius: 18px;
-    height: 315px;
+    height: 200px;
     position: relative;
     width: calc(100% + 40px);
     transform: translate(-20px, 0);
@@ -528,6 +531,12 @@ select.filter {
     color: black;
     font-family: 'tt_normsbold', sans-serif;
     background-color: #F2F2F2;
+}
+.no-result {
+    display:none;
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    height: 220px;
 }
 /* Mobile menu menu elements only */
 #site-menu li {

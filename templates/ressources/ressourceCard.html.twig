@@ -24,7 +24,7 @@
     </div>
     <div class="card-content {% if (ressource.link is defined and 'youtube' in ressource.link) or (ressource.image is not null) %}mt-auto{% endif %}">
         {% if ressource.link is defined and 'youtube' in ressource.link %}
-            <iframe width="100%" height="315"
+            <iframe width="100%" height="200"
                     src="{{ ressource.link|replace({'watch?v=': '/embed/'}) }}">
             </iframe>
         {% endif %}

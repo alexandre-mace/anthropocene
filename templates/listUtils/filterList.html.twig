@@ -14,7 +14,7 @@
                     }
                 });
 
-                return voteTypes.length === votesFor.length;
+                return [...new Set(voteTypes)].length === [...new Set(votesFor)].length;
             }
             return true;
         });

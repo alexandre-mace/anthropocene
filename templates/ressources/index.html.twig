@@ -24,7 +24,12 @@
                 {% include './listUtils/reset.html.twig' %}
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid ressources-wrapper">
+            <div class="no-result row">
+                <div class="col my-auto">
+                    Pas de ressources correspondant à la recherche.
+                </div>
+            </div>
             <div class="row list">
                 {% for ressource in ressources %}
                     <div class="col-md-4 mb-4">
@@ -45,6 +50,13 @@
         };
 
         const list = new List('ressources', options);
+        list.on('updated', function(list) {
+            if (list.matchingItems.length > 0) {
+                document.querySelector('.no-result').style.display = 'none'
+            } else {
+                document.querySelector('.no-result').style.display = 'flex'
+            }
+        })
         const activeFilters = [];
     </script>
     {% include './listUtils/filterList.html.twig' %}

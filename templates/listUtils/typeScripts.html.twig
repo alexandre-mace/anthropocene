@@ -25,7 +25,7 @@
                 filterType(option.value);
             } else {
                 if (!option.selected && activeFilters.findIndex((activeFilter) => activeFilter.type === 'type' && activeFilter.value === option.value) !== -1) {
-                    activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'type' && activeFilter.value === option), 1);
+                    activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'type' && activeFilter.value === option.value), 1);
                 }
             }
             filterList();

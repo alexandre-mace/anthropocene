@@ -33,7 +33,7 @@
                 filterTheme(option.value);
             } else {
                 if (!option.selected && activeFilters.findIndex((activeFilter) => activeFilter.type === 'theme' && activeFilter.value === option.value) !== -1) {
-                    activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'theme' && activeFilter.value === option), 1);
+                    activeFilters.splice(activeFilters.findIndex((activeFilter) => activeFilter.type === 'theme' && activeFilter.value === option.value), 1);
                 }
             }
             filterList();
