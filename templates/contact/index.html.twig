@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="contact page-with-background">
+        <div class="container-fluid mt-md-5 pt-3">
+            <div class="row">
+                <div class="col mb-4">
+                    <div class="page-title">
+                        Me contacter
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8 default-text">
+                    <div class="mt-2">Vous avez une remarque sur une publication, un message ou souhaitez simplement me dire bonjour ?</div>
+                    <div class="mt-2">N'hésitez pas à m'envoyer un message :)</div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {{ form_row(form.author) }}
+                    <div class="mb-3"></div>
+
+                    <div class="message-content">
+                        {{ form_row(form.content) }}
+                    </div>
+                    <div class="mb-3"></div>
+
+                    <button type="submit" class="btn main-action">Envoyer</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -335,6 +335,16 @@ button:focus, input:focus {
     background-image: url('./img/hand.png');
     background-size: 19%;
 }
+.contact::before {
+    background-image: url('./img/write.png');
+    background-position: top 15% right;
+    background-size: 40%;
+}
+.contact_confirmation::before {
+    background-image: url('./img/walk.png');
+    background-position: top 15% right;
+    background-size: 40%;
+}
 /* visits */
 .visits {
     position: absolute;
@@ -664,6 +674,25 @@ select.filter {
     transition: opacity .3s ease-in-out;
     opacity: 1;
 }
+.contact label {
+    display: inherit;
+    min-width: 150px;
+    margin-bottom: 0.7rem;
+}
+.contact input, .contact textarea {
+    border: 2px solid black;
+    display: inherit;
+    min-width: 150px;
+    border-radius: 5px;
+    min-height: 15px;
+    padding: 10px;
+    font-size: 1rem;
+}
+.contact .message-content textarea {
+    min-height: 300px;
+    min-width: 500px;
+    max-width: 100%;
+}
 
 @keyframes menu-open {
     100% {
@@ -743,6 +772,12 @@ select.filter {
         max-width: 60vw;
     }
     .reports::before {
+        background-size: 50%;
+    }
+    .contact::before {
+        background-size: 50%;
+    }
+    .contact_confirmation::before {
         background-size: 50%;
     }
     .organisms::before {
