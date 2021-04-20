@@ -169,8 +169,16 @@ a button {
 .text-link {
     padding: 0;
     text-decoration: underline;
+    border-radius: 0;
+    background: linear-gradient(to right, #F2F2F2 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
 }
-
+.text-link:hover {
+    background-color: initial;
+    background-position: left bottom;
+}
 .outlined-btn-wrapper a {
     padding: 0 10px;
     text-decoration: none;
@@ -453,7 +461,9 @@ select.filter {
     transition: box-shadow .3s, border .2s;
 }
 .main-action:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 1) 0px 8px 24px;
+    background-color: black;
+    color: white;
 }
 .white-button {
     box-sizing: border-box;
