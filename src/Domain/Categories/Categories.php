@@ -69,6 +69,11 @@ final class Categories
                 'value' => 'Alimentation',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/curry-rice_1f35b.png',
             ],
+            [
+                'label' => 'Social',
+                'value' => 'Social',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/handshake_1f91d.png',
+            ],
         ];
     }
 
