@@ -59,6 +59,11 @@ final class Categories
                 'value' => 'Ressources',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/droplet_1f4a7.png',
             ],
+            [
+                'label' => 'Politique',
+                'value' => 'Politique',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/ballot-box-with-ballot_1f5f3-fe0f.png',
+            ],
         ];
     }
 
