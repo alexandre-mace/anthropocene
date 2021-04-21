@@ -124,17 +124,17 @@
             let themeFilters = [];
             let mediaFilters = [];
 
-            function resetList(){
+            function resetList() {
+                document.querySelector('.search').value = '';
+                const multipleSelectors = document.querySelectorAll('.dropdown-select li.list-group-item-primary');
+                [...multipleSelectors].forEach((multipleSelector) => {
+                    multipleSelector.click()
+                })
+
                 list.search();
                 list.filter();
                 list.update();
-                document.querySelector('.search').value = '';
-                document.querySelector('.filter').selectedIndex = 0;
-                const typeSelectors = document.getElementsByClassName('type-selector');
-                [...typeSelectors].forEach((typeSelector) => {
-                    typeSelector.checked = false;
-                })
-            };
+            }
 
             const mobileMenuToggler = document.getElementById('menu-toggle')
             const fullscreenBlocks = document.getElementsByClassName('fullscreen-block-checkbox')
