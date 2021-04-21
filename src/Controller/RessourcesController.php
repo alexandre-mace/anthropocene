@@ -12,7 +12,7 @@ class RessourcesController extends AbstractController
     #[Route('/ressources', name: 'ressources')]
     public function index(RessourceRepository $ressourceRepository): Response
     {
-        $ressources = $ressourceRepository->findAll();
+        $ressources = $ressourceRepository->findBy([], ['id' => 'DESC']);
 
         return $this->render('ressources/index.html.twig', [
             'ressources' => $ressources,
