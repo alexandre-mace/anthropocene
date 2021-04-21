@@ -64,6 +64,11 @@ final class Categories
                 'value' => 'Politique',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/ballot-box-with-ballot_1f5f3-fe0f.png',
             ],
+            [
+                'label' => 'Alimentation',
+                'value' => 'Alimentation',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/curry-rice_1f35b.png',
+            ],
         ];
     }
 
