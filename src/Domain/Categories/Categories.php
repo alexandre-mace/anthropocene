@@ -74,6 +74,11 @@ final class Categories
                 'value' => 'Social',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/handshake_1f91d.png',
             ],
+            [
+                'label' => 'Écoféminisme',
+                'value' => 'Écoféminisme',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/230/female-sign_2640.png',
+            ],
         ];
     }
 
