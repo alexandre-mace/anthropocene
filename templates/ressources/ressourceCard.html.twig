@@ -28,7 +28,7 @@
                     src="{{ ressource.link|replace({'watch?v=': '/embed/'}) }}">
             </iframe>
         {% endif %}
-        {% if ressource.image is not null %}
+        {% if ressource.imageLink is not null %}
             <div class="mt-4">
                 <div class="ressource-img-wrapper">
                     <img class="ressource-img glightbox" src="{{ ressource.imageLink }}" alt="{{ ressource.title }}">
