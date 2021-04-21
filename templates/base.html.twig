@@ -134,6 +134,9 @@
                 list.search();
                 list.filter();
                 list.update();
+
+                localStorage.removeItem('mediaFilters')
+                localStorage.removeItem('themeFilters')
             }
 
             const mobileMenuToggler = document.getElementById('menu-toggle')
