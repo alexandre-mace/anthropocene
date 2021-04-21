@@ -45,6 +45,11 @@ class Ressource
     private $image;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageLink;
+
+    /**
      * @Vich\UploadableField(mapping="image", fileNameProperty="image")
      */
     private $imageFile;
@@ -147,5 +152,21 @@ class Ressource
         $this->themes = $themes;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageLink()
+    {
+        return $this->imageLink;
+    }
+
+    /**
+     * @param mixed $imageLink
+     */
+    public function setImageLink($imageLink): void
+    {
+        $this->imageLink = $imageLink;
     }
 }

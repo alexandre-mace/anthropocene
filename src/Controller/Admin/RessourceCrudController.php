@@ -38,11 +38,12 @@ class RessourceCrudController extends AbstractCrudController
                 'Livre' => 'Livre',
             ]),
             ChoiceField::new('themes')->setChoices($categories)->setFormTypeOption('multiple', true),
-            TextAreaField::new('imageFile')->setFormType(VichFileType::class, [
-                            'delete_label' => 'supprimer?'
-                        ])->onlyOnForms(),
-            ImageField::new('image')->setBasePath('/files/image')->onlyOnDetail(),
-            TextAreaField::new('imageFile')->setFormType(VichImageType::class)
+//            TextAreaField::new('imageFile')->setFormType(VichFileType::class, [
+//                            'delete_label' => 'supprimer?'
+//                        ])->onlyOnForms(),
+//            ImageField::new('image')->setBasePath('/files/image')->onlyOnDetail(),
+//            TextAreaField::new('imageFile')->setFormType(VichImageType::class)
+            TextField::new('imageLink'),
         ];
     }
 }
