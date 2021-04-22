@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid my-5">
+        <div class="container-fluid my-3 my-md-5 filters-bar">
             <div class="row">
                 {% include './listUtils/search.html.twig' %}
             </div>
@@ -71,5 +71,20 @@
             });
             list.update();
         }
+    </script>
+    <script>
+        const onStickyChangeBackground = (event) => {
+            if (event[0].isIntersecting) {
+                document.querySelector('.filters-bar').classList.remove('filters-bar-filled')
+            } else {
+                document.querySelector('.filters-bar').classList.add('filters-bar-filled')
+            }
+        }
+        const observer = new IntersectionObserver(onStickyChangeBackground, {
+            rootMargin: '-1px 0px 0px 0px',
+            threshold: [1],
+        });
+
+        observer.observe(document.querySelector('.filters-bar'));
     </script>
 {% endblock %}

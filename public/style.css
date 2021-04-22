@@ -28,7 +28,6 @@ html {
 body {
     padding-right: 4.2vw;
     padding-left: 4.2vw;
-    overflow-x: hidden;
     margin: 0;
 }
 header {
@@ -43,7 +42,14 @@ footer {
     width: 100vw !important;
 }
 #scroll-to-top {
-    background-color: white;
+    background-color: black;
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all .5s ease
 }
 h1, h2, h3 {
     font-size: inherit;
@@ -307,7 +313,6 @@ button:focus, input:focus {
 }
 /* page background */
 .page-with-background {
-    overflow: auto;
     position: relative;
 }
 .page-with-background::before {
@@ -337,7 +342,7 @@ button:focus, input:focus {
 .ressources::before {
     background-image: url('./img/read.png');
     background-size: 40%;
-    background-position: top 5% right;
+    background-position: top -5% right;
 }
 .infos::before {
     background-image: url('./img/hand.png');
@@ -703,7 +708,19 @@ select.filter {
     min-width: 500px;
     max-width: 100%;
 }
-
+.filters-bar {
+    position: -webkit-sticky; /* Safari & IE */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 30px 15px;
+    width: calc(100% - 30px);
+}
+.filters-bar-filled {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
 @keyframes menu-open {
     100% {
         width: 100vw;
@@ -724,10 +741,17 @@ select.filter {
         opacity:1;
     }
 }
-
+#scroll-to-top.show-scroll-to-top {
+    opacity: 1;
+    transform: translateY(0)
+}
 
 /* mobile */
 @media screen and (max-width: 768px) {
+    #scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
     button, .btn {
         font-size: 1rem;
     }
@@ -754,6 +778,7 @@ select.filter {
     body {
         padding: 0;
         margin: 0;
+        overflow-x: hidden;
     }
     footer {
         transform: none;
@@ -795,6 +820,7 @@ select.filter {
     }
     .ressources::before {
         background-size: 50%;
+        background-position: top 0 right;
     }
     .infos::before {
         background-size: 35%;
@@ -813,15 +839,6 @@ select.filter {
     }
     .head-image img {
         max-width: 100vw;
-    }
-}
-@media screen and (max-width: 335px) {
-    .footer-scroll-to-top {
-        order: 1;
-    }
-
-    .footer-brand-section {
-        order: 2;
     }
 }
 
