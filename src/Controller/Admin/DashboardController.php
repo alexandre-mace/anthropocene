@@ -33,6 +33,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Ressources', 'fa fa-file-text', Ressource::class);
+        yield MenuItem::linktoRoute('Export ressources', 'fa fa-download', 'admin_export_ressources');
         yield MenuItem::linkToCrud('Messages', 'fa fa-inbox', Message::class);
     }
 }
