@@ -84,6 +84,11 @@ final class Categories
                 'value' => 'Technologie',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/floppy-disk_1f4be.png',
             ],
+            [
+                'label' => 'Santé',
+                'value' => 'Santé',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/stethoscope_1fa7a.png',
+            ],
         ];
     }
 
