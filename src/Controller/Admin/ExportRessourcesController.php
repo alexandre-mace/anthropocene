@@ -22,7 +22,7 @@ class ExportRessourcesController extends AbstractController
         $ressources = $ressourceRepository->findBy([], ['id' => 'DESC']);
 
 
-        $fp = fopen('php://output', 'w');
+        $fp = fopen('php://temp', 'w');
 
         fputcsv($fp, ['id', 'author', 'title', 'link', 'type', 'imageLink', 'themes']);
         foreach ($ressources as $ressource) {
@@ -37,7 +37,10 @@ class ExportRessourcesController extends AbstractController
             ]);
         }
 
-        $response = new Response();
+        rewind($fp);
+        $response = new Response(stream_get_contents($fp));
+        fclose($fp);
+
         $response->headers->set('Content-Type', 'text/csv');
         $response->headers->set('Content-Disposition', 'attachment; filename="testing.csv"');
 
