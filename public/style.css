@@ -782,9 +782,14 @@ select.filter {
     opacity: 1;
     transform: translateY(0)
 }
-
+.card-link {
+    font-size: 1.1rem;
+}
 /* mobile */
 @media screen and (max-width: 768px) {
+    .card-link {
+        font-size: 1rem;
+    }
     #scroll-to-top {
         bottom: 20px;
         right: 20px;
