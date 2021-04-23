@@ -193,7 +193,7 @@ footer a {
     font-family: 'tt_normsbold', sans-serif;
 }
 .section-title {
-    font-size: calc(16px + 1.6vw);
+    font-size: calc(19px + 1.6vw);
     font-family: 'tt_normsbold', sans-serif;
 }
 a button {
@@ -337,10 +337,10 @@ button:focus, input:focus {
 }
 .card-title {
     font-family: 'tt_normsbold', sans-serif;
-    font-size: calc(16px + 0.4vw);
+    font-size: calc(19px + 0.4vw);
 }
 .card-author {
-    font-size: calc(14px + 0.3vw);
+    font-size: calc(17px + 0.3vw);
     margin-bottom: 0.5rem;
     white-space: nowrap;
 }
