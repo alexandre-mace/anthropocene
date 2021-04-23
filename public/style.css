@@ -787,6 +787,10 @@ select.filter {
 }
 /* mobile */
 @media screen and (max-width: 768px) {
+    .disable-mobile-animation {
+        transform: none !important;
+        opacity: 1 !important;
+    }
     .card-link {
         font-size: 1rem;
     }
