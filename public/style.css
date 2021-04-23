@@ -165,15 +165,6 @@ a:hover {
 .ressource-img:hover {
     cursor: pointer;
 }
-.card-link {
-    font-size: 1.1rem;
-}
-.card a {
-    background-color: white;
-}
-.card a:hover {
-    background-color: white;
-}
 .brand {
     font-family: 'tt_normsbold', sans-serif;
     font-size: 1.6rem;
