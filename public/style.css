@@ -199,7 +199,7 @@ footer a {
     transform: translateY(4vh);
 }
 .main-line {
-    font-size: calc(12px + 1.2vw);
+    font-size: calc(16px + 1.1vw);
 }
 .main-line *, .main-line {
     font-family: 'tt_normsbold', sans-serif;
@@ -211,6 +211,7 @@ footer a {
 a button {
     border: 3px solid #F2F2F2;
     background-color: white;
+    padding: 11px 25px;
     transition: all .3s ease-out;
     border-radius: 25px;
     white-space: nowrap;
@@ -253,6 +254,7 @@ a button:hover {
 .main-section {
     min-height: 80vh;
     position: relative;
+    margin-top: 10rem;
     z-index: 1;
 }
 header {
@@ -507,6 +509,7 @@ select.filter {
     background-color: black;
     color: white;
     transition: box-shadow .3s, border .2s;
+    border: none;
 }
 .main-action:hover {
     box-shadow: rgba(149, 157, 165, 1) 0px 8px 24px;
@@ -828,11 +831,12 @@ select.filter {
         padding: 2rem 0;
     }
     .my-10 {
-        margin-top: 5rem;
-        margin-bottom: 9rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
     }
     .main-section {
         min-height: 30vh;
+        margin-top: 2.5rem;
     }
     .head-title * {
         font-size: calc(14px + 6vw);
@@ -841,10 +845,13 @@ select.filter {
         padding: 12px 23px;
     }
     .head-image {
-        transform: translateX(7vw);
+        transform: translateX(25vw);
     }
     .mb-10 {
-        margin-bottom: 7rem;
+        margin-bottom: 4rem;
+    }
+    .mt-10 {
+        margin-top: 4rem;
     }
     .main-image img {
         max-width: 60vw;
@@ -881,7 +888,7 @@ select.filter {
         word-break: keep-all;
     }
     .head-image img {
-        max-width: 100vw;
+        max-width: 70vw;
     }
 }
 
