@@ -76,7 +76,9 @@
         const scrollThrottle = 250;
         const loadingTime = 700;
 
-        window.onscroll = function() {scrolling = true};
+        window.addEventListener('scroll', function(e) {
+            scrolling = true;
+        });
 
         setInterval(() => {
             if (scrolling) {
