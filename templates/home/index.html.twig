@@ -4,16 +4,27 @@
     <div class="container-fluid main-section">
         <div class="row">
             <div class="col-12 col-md-7 mb-2 mb-md-0">
-                <div class="head-title home-head-title fadeInLoad">
+                <div
+                        class="head-title home-head-title"
+                        data-aos="fade-up"
+                        data-aos-easing="ease-out"
+                        data-aos-duration="1000"
+                        data-aos-delay="150"
+                >
                     <h1>Plateforme de ressources sur l'environnement.</h1>
                 </div>
-                <div>
-                    {% include 'personalization/personalized-search.html.twig' %}
-                </div>
+                {% include 'personalization/personalized-search.html.twig' %}
             </div>
             <div class="col-md-4 ml-md-4 mt-2 mt-md-0">
                 <div class="head-image">
-                    <img src="{{ asset('img/bike.png') }}" alt="">
+                    <img
+                            src="{{ asset('img/bike.png') }}"
+                            alt=""
+                            data-aos="fade-up"
+                            data-aos-delay="850"
+                            data-aos-duration="600"
+                            data-aos-easing="ease-out"
+                    >
                 </div>
             </div>
         </div>

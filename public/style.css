@@ -186,9 +186,6 @@ footer a {
 .page-title {
     font-size: calc(23px + 2.7vw);
 }
-.home-head-title {
-    transform: translateY(4vh);
-}
 .main-line {
     font-size: calc(16px + 1.1vw);
 }
@@ -463,10 +460,13 @@ select.filter {
     opacity:0;
 }
 .fadeInLoad-header-delayed {
-    animation: fadeInLoad .6s 0.4s cubic-bezier(0.855, -0.255, 1.000, 1.000);
+    animation: fadeInLoad .4s 1.5s cubic-bezier(0.855, -0.255, 1.000, 1.000);
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards; /* for less modern browsers */
     opacity:0;
+}
+.home-head-title[data-aos] {
+    transition-timing-function: cubic-bezier(.35,.1,.31,.7) !important;
 }
 @keyframes fadeInLoad {
     from {
