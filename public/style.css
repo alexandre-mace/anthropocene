@@ -114,7 +114,7 @@ a:hover {
     background-color: #F2F2F2;
 }
 .default-text {
-    font-size: calc(12px + 0.6vw);
+    font-size: calc(16px + 0.4vw);
 }
 .infos {
     min-height: calc(100vh - 230px);
@@ -785,8 +785,14 @@ select.filter {
 .card-link {
     font-size: 1.1rem;
 }
+.card-description {
+    font-size: 1.2rem;
+}
 /* mobile */
 @media screen and (max-width: 768px) {
+    .card-description {
+        font-size: 1rem;
+    }
     .disable-mobile-animation {
         transform: none !important;
         opacity: 1 !important;
