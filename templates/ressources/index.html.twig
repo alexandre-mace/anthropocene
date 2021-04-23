@@ -109,8 +109,8 @@
         document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
 
         list.on('updated', function(list) {
+            document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
             if (list.matchingItems.length > 0) {
-                document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
                 document.querySelector('.no-result').style.display = 'none'
             } else {
                 document.querySelector('.no-result').style.display = 'flex'
