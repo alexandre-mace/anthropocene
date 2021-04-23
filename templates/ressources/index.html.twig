@@ -3,6 +3,7 @@
 {% block title %}Les ressources{% endblock %}
 
 {% block body %}
+    {% include './listUtils/lazyLoadYoutubeStyle.html.twig' %}
     <div class="ressources page-with-background" id="ressources">
         <div class="container-fluid mt-3 mt-md-5 pt-3">
             <div class="row">
@@ -25,6 +26,12 @@
             </div>
         </div>
         <div class="container-fluid ressources-wrapper">
+            <div class="row">
+                <div class="col mb-3">
+                    <div id="ressources-total" class=" pl-3">
+                    </div>
+                </div>
+            </div>
             <div class="no-result row">
                 <div class="col my-auto">
                     Pas de ressources correspondant à la recherche.
@@ -37,6 +44,12 @@
                     </div>
                 {% endfor %}
             </div>
+            <ul class="pagination" hidden></ul>
+            <div class="row my-3">
+                <div class="col justify-content-center text-center list-loader">
+                    <div class="dot-typing mx-auto"></div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -44,14 +57,58 @@
 {% block bottom_scripts %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
     <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
+    {% include './listUtils/lazyLoadYoutubeScript.html.twig' %}
     <script>
+        const itemsPerPage = 20;
         const options = {
+            pagination: true,
+            page: itemsPerPage,
             valueNames: ['author', 'title', 'type',  { name: 'theme', attr: 'data-theme' }],
         };
 
         const list = new List('ressources', options);
+        list.add(() => {
+        });
+
+        let scrolling = false;
+        let page = 1;
+        let maxPage = Math.ceil(list.items.length / itemsPerPage);
+        const scrollThrottle = 250;
+        const loadingTime = 700;
+
+        window.onscroll = function() {scrolling = true};
+
+        setInterval(() => {
+            if (scrolling) {
+                const container = document.querySelector(".ressources-wrapper");
+                const containerPosY = container.getBoundingClientRect().top;
+                const scrollPosY = window.scrollY;
+                const containerList = document.querySelector(".ressources-wrapper .list");
+                const containerListY = containerList.offsetHeight;
+                const offsetY = 15;
+
+                if (containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage) {
+                    document.querySelector('.list-loader').classList.add('d-block')
+                    setTimeout(() => {
+                        page++;
+                        list.show(0, page * itemsPerPage);
+                        document.querySelector('.list-loader').classList.remove('d-block')
+                        loadYtbVideos()
+                    }, loadingTime)
+                }
+                else if (scrollPosY + containerPosY < containerPosY + offsetY) {
+                    // reached top
+                }
+
+                scrolling = false;
+            }
+        }, scrollThrottle);
+
+        document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
+
         list.on('updated', function(list) {
             if (list.matchingItems.length > 0) {
+                document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
                 document.querySelector('.no-result').style.display = 'none'
             } else {
                 document.querySelector('.no-result').style.display = 'flex'
@@ -90,5 +147,8 @@
         });
 
         observer.observe(document.querySelector('.filters-bar'));
+    </script>
+    <script>
+        loadYtbVideos()
     </script>
 {% endblock %}

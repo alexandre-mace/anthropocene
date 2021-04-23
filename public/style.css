@@ -51,6 +51,47 @@ footer {
     transform: translateY(100px);
     transition: all .5s ease
 }
+.list-loader {
+    display: none;
+}
+#ressources-total {
+    font-size: 1.2rem;
+}
+.dot-typing {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: black;
+    box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    animation: dotTyping 1.5s infinite linear;
+}
+
+@keyframes dotTyping {
+    0% {
+        box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    }
+    16.667% {
+        box-shadow: 9984px -10px 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    }
+    33.333% {
+        box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    }
+    50% {
+        box-shadow: 9984px 0 0 0 black, 9999px -10px 0 0 black, 10014px 0 0 0 black;
+    }
+    66.667% {
+        box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    }
+    83.333% {
+        box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px -10px 0 0 black;
+    }
+    100% {
+        box-shadow: 9984px 0 0 0 black, 9999px 0 0 0 black, 10014px 0 0 0 black;
+    }
+}
 h1, h2, h3 {
     font-size: inherit;
     margin: inherit;
@@ -85,14 +126,16 @@ a:hover {
     /*-webkit-text-stroke: 2px black;*/
     /*-webkit-text-stroke-color: black;*/
 }
-iframe {
+.llyv {
     border-radius: 18px;
     border: none;
+    height: 200px;
 }
-.card iframe {
+.card .llyv {
     width: calc(100% + 40px);
     transform: translate(-20px, 5px);
     margin-top: auto;
+    margin-bottom: 0;
 }
 .ressources-wrapper {
     min-height: 250px;
@@ -843,7 +886,7 @@ select.filter {
 }
 
 @media screen and (min-width: 1350px) {
-    .card iframe {
+    .card .llyv {
         height: 250px;
     }
     .card .ressource-img, .ressource-img-wrapper {
