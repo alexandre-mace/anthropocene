@@ -89,6 +89,11 @@ final class Categories
                 'value' => 'Santé',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/stethoscope_1fa7a.png',
             ],
+            [
+                'label' => 'Pollution',
+                'value' => 'Pollution',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/pile-of-poo_1f4a9.png',
+            ],
         ];
     }
 
