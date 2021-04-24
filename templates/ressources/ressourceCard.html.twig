@@ -17,7 +17,7 @@
         {{ ressource.author }}
     </div>
     <div class="card-title mb-4 title">
-        {{ ressource.title }}
+        {{ ressource.title|capitalize }}
     </div>
     <div class="card-link {% if ressource.link is defined and 'youtube' in ressource.link %}mb-3{% endif %}">
         <a class="main-action" href="{{ ressource.link }}" target="_blank">Voir la ressource</a>

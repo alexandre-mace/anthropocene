@@ -342,7 +342,7 @@ button:focus, input:focus {
 .card-author {
     font-size: calc(17px + 0.3vw);
     margin-bottom: 0.5rem;
-    white-space: nowrap;
+    word-break: break-all;
 }
 /* page background */
 .page-with-background {

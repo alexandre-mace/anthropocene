@@ -3,7 +3,7 @@
         {{ report.author }}
     </div>
     <div class="card-title mb-4 title">
-        {{ report.title }}
+        {{ report.title|capitalize }}
     </div>
         {% for reportLink in report.links %}
             <div class="card-link mb-3">
