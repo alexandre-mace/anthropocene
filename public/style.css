@@ -20,6 +20,7 @@
 * {
     box-sizing: border-box;
     font-family: 'tt_normsmedium', sans-serif;
+    -webkit-tap-highlight-color: rgba(242, 242, 242, 0.4);
 }
 html {
     overflow-x: hidden;
