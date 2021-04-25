@@ -20,6 +20,9 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*) https://www.%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+
     # If we receive a forwarded http request from a proxy...
     RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
 
