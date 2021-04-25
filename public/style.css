@@ -693,6 +693,7 @@ select.filter {
 }
 #menu-toggle:checked + #menu-button + #site-menu, .fullscreen-block-checkbox:checked + .fullscreen-block-label + .fullscreen-block {
     animation: menu-open .5s ease both;
+    opacity: 1;
 }
 #menu-toggle:checked + #menu-button + #site-menu ul > li,  .fullscreen-block-checkbox:checked + .fullscreen-block-label + .fullscreen-block .fullscreen-block-content{
     display: block;
@@ -956,16 +957,30 @@ select.filter {
         background-size: 35%;
     }
     .card-select {
-        padding: 20px;
+        padding: 0px !important;
         background-color: rgb(247, 247, 247);
         border-radius: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 130px;
-        width: 130px;
+        height: 95px;
+        width: 95px;
+        font-size: 0.8rem;
         word-break: keep-all;
+    }
+    .card-select-emoji-wrapper img {
+        margin: auto;
+        max-height: 20px;
+        max-width: 20px;
+    }
+    .card-select-emoji-wrapper {
+        background-color: #fff;
+        height: 38px;
+        width: 38px;
+        display: flex;
+        border-radius: 50%;
+        text-align: center;
     }
     .head-image img {
         max-width: 70vw;

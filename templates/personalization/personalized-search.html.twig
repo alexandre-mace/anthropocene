@@ -1,15 +1,18 @@
 {% set categories = getCategories() %}
 {% set formats = getFormats() %}
 <div class="mt-2">
-    <div
-            class="fullscreen-block-wrapper disable-mobile-animation"
-            data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="600"
-            data-aos-easing="ease-out"
-    >
+    <div class="fullscreen-block-wrapper">
         <input type="checkbox" id="search-toggle" class="fullscreen-block-checkbox"/>
-        <label for="search-toggle" class="fullscreen-block-label btn mt-1 mt-md-3 main-action">Découvrir les ressources</label>
+        <label
+                for="search-toggle"
+               class="fullscreen-block-label btn mt-1 mt-md-3 main-action disable-mobile-animation"
+                data-aos="fade-up"
+                data-aos-duration="600"
+                data-aos-delay="600"
+                data-aos-easing="ease-out"
+        >
+            Découvrir les ressources
+        </label>
         <div class="fullscreen-block fadeInLoad-header-delayed">
             <div class="fullscreen-block-content personalization-search personalization-part-1 toggle-content fadeIn is-visible container mt-3 mt-md-5">
                 <div class="row">
@@ -25,9 +28,9 @@
                         <div>(Ne vous inquiètez pas, ce choix n'est pas définitif).</div>
                     </div>
                 </div>
-                <div class="row my-3">
+                <div class="row my-3 px-2 px-md-0 justify-content-center">
                     {% for category in categories %}
-                        <div class="card-select-wrapper col-auto mb-4">
+                        <div class="card-select-wrapper col-auto px-1 px-md-3 mb-4">
                             <input type="checkbox" id="{{ category.value }}" value="{{ category.value }}" />
                             <label for="{{ category.value }}" class="card-select">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
@@ -63,9 +66,9 @@
                         <div>(Ne vous inquiètez pas, ce choix n'est pas définitif).</div>
                     </div>
                 </div>
-                <div class="row my-3">
+                <div class="row my-3 px-2 px-md-0 justify-content-center">
                     {% for format in formats %}
-                        <div class="card-select-wrapper col mb-4">
+                        <div class="card-select-wrapper col-auto px-1 px-md-3 mb-4">
                             <input type="checkbox" id="{{ format.value }}" value="{{ format.value }}" />
                             <label for="{{ format.value }}" class="card-select">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
