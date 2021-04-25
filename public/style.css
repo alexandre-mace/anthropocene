@@ -956,6 +956,9 @@ select.filter {
     .infos::before {
         background-size: 35%;
     }
+    .dropdown-select > div {
+        display: none !important;
+    }
     .card-select {
         padding: 0px !important;
         background-color: rgb(247, 247, 247);
