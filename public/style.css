@@ -808,6 +808,11 @@ select.filter {
     display: none;
 }
 @media screen and (max-width: 768px) {
+    .contact .message-content textarea {
+        min-height: 215px;
+        width: 100%;
+        min-width: auto;
+    }
     .filters-bar-filled .filters-wrapper {
         background-color: rgba(255, 255, 255, 0);
         box-shadow: none;
