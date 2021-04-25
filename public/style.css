@@ -248,6 +248,9 @@ a button:hover {
 header {
     position: relative;
 }
+.overflow-x-visible {
+    overflow-x: visible !important;
+}
 button, .btn {
     font-size: 1.2rem;
     padding: 14px 25px;
@@ -752,13 +755,22 @@ select.filter {
     position: sticky;
     top: 0;
     z-index: 1;
-    padding: 30px 15px;
     width: calc(100% - 30px);
 }
-.filters-bar-filled {
+.filters-bar-filled .filters-wrapper {
     background-color: white;
     border-radius: 16px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.filters-bar-transparent-block {
+    background: transparent;
+    height: 15px;
+}
+.filters-bar-filled .filters-wrapper {
+    padding: 0 0px 30px 0px;
+}
+.filters-bar-close {
+    display: none;
 }
 @keyframes menu-open {
     100% {
@@ -791,7 +803,55 @@ select.filter {
     font-size: 1.2rem;
 }
 /* mobile */
+.read-more-state {
+    display: none;
+}
 @media screen and (max-width: 768px) {
+    .filters-bar-filled .filters-wrapper {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: none;
+        position: relative;
+        transition: .45s ease;
+    }
+    .filters-bar-filled .read-more-state:checked ~ .filters-wrapper {
+        background-color: white;
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        transition: .45s ease;
+    }
+    .filters-bar-filled .read-more-trigger {
+        cursor: pointer;
+        padding: 14px 25px;
+        border-radius: 25px;
+        border: none;
+        display: inline-block;
+        color: #2e2e2e;
+        text-decoration: none;
+        background-color: #F2F2F2;
+        box-shadow: rgba(17, 12, 46, 0.20) 0px 38px 80px 0px;
+    }
+    .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-trigger:before {
+        content: 'Voir les filtres';
+    }
+    .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-trigger:before {
+        content: 'Fermer';
+    }
+    .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-target {
+        opacity: 0;
+    }
+    .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-target {
+        opacity: 1;
+        font-size: inherit;
+        max-height: 999em;
+    }
+    .filters-bar-filled .read-more-state ~ .filters-wrapper .filters-bar-close {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        display: flex;
+    }
+    .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .filters-bar-close {
+        position: relative;
+    }
     .card-description {
         font-size: 1rem;
     }
@@ -805,6 +865,12 @@ select.filter {
     #scroll-to-top {
         bottom: 20px;
         right: 20px;
+    }
+    .no-result {
+        display:none;
+        margin-top: 0;
+        font-size: 1rem;
+        height: 50px;
     }
     button, .btn {
         font-size: 1rem;

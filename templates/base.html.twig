@@ -23,7 +23,7 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <body>
+    <body {% block body_extra_class %}{% endblock %}>
         {% block header %}
         <div class="visits">
             {{ visits.access.total }} visites

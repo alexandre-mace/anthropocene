@@ -2,6 +2,8 @@
 
 {% block title %}Les ressources{% endblock %}
 
+{% block body_extra_class %}class="overflow-x-visible"{% endblock %}
+
 {% block body %}
     {% include './listUtils/lazyLoadYoutubeStyle.html.twig' %}
     <div class="ressources page-with-background" id="ressources">
@@ -14,15 +16,28 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid my-3 my-md-5 filters-bar">
+        <div class="container-fluid mb-3 mb-md-5 mt-1 mt-md-4 filters-bar">
             <div class="row">
-                {% include './listUtils/search.html.twig' %}
+                <div class="col filters-bar-transparent-block" style=""></div>
             </div>
-            <div class="row align-items-end">
-                {% include './listUtils/authorFilter.html.twig' %}
-                {% include './listUtils/typeFilter.html.twig' %}
-                {% include './listUtils/themeFilter.html.twig' %}
-                {% include './listUtils/reset.html.twig' %}
+            <input type="checkbox" class="read-more-state" id="filters-wrapper-trigger" />
+            <div class="row filters-wrapper">
+                <div class="col-12">
+                    <div class="row read-more-target" style="padding-top: 30px">
+                        {% include './listUtils/search.html.twig' %}
+                    </div>
+                    <div class="row align-items-end read-more-target">
+                        {% include './listUtils/authorFilter.html.twig' %}
+                        {% include './listUtils/typeFilter.html.twig' %}
+                        {% include './listUtils/themeFilter.html.twig' %}
+                        {% include './listUtils/reset.html.twig' %}
+                    </div>
+                </div>
+                <div class="col filters-bar-close">
+                    <div class="col justify-content-center text-center">
+                        <label for="filters-wrapper-trigger" class="read-more-trigger"></label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container-fluid ressources-wrapper">
