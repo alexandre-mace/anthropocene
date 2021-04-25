@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% include './listUtils/lazyLoadYoutubeStyle.html.twig' %}
     <div class="container-fluid main-section">
         <div class="row">
             <div class="col-12 col-md-7 mb-2 mb-md-0">
@@ -141,4 +142,10 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block bottom_scripts %}
+    {% include 'listUtils/lazyLoadYoutubeScript.html.twig' %}
+    <script>
+        loadYtbVideos();
+    </script>
 {% endblock %}
