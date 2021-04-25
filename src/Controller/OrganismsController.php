@@ -27,6 +27,11 @@ class OrganismsController extends AbstractController
                 'link'   => 'https://theshiftproject.org/',
                 'description' => '"Le Shift est géré au quotidien par une équipe salariée d’une dizaine de personnes dont Matthieu Auzanneau est le directeur. Le président Jean-Marc Jancovici et le Bureau supervisent les activités tandis que des chefs de projet pilotent les groupes de travail. Le think tank bénéficie du soutien de bénévoles qui ont constitué une association autonome : Les Shifters."'
             ],
+            [
+                'name' => 'IPBES',
+                'link'   => 'https://www.ipbes.net/fr',
+                'description' => '"La Plateforme intergouvernementale scientifique et politique sur la biodiversité et les services écosystémiques (en anglais : Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services, IPBES) est un groupe international d\'experts sur la biodiversité"'
+            ],
         ];
 
         return $this->render('organisms/index.html.twig', [
