@@ -387,7 +387,7 @@ button:focus, input:focus {
 }
 .contact::before {
     background-image: url('./img/write.png');
-    background-position: top 15% right;
+    background-position: top 5% right;
     background-size: 40%;
 }
 .contact_confirmation::before {
@@ -775,6 +775,10 @@ select.filter {
 .filters-bar-close {
     display: none;
 }
+.highlight {
+    background-color: #F2F2F2;
+    background-image: linear-gradient(to right, #F2F2F2 0%, #F2F2F2 100%);
+}
 @keyframes menu-open {
     100% {
         width: 100vw;
@@ -961,7 +965,7 @@ select.filter {
         background-position: top 0 right;
     }
     .infos::before {
-        background-size: 35%;
+        background-size: 25%;
     }
     .dropdown-select > div {
         display: none !important;
