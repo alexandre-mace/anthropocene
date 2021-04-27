@@ -861,6 +861,7 @@ select.filter {
         top: 15px;
         left: 0;
         display: flex;
+        pointer-events: all;
     }
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .filters-bar-close {
         position: relative;

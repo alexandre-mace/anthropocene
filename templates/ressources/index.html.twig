@@ -155,9 +155,11 @@
     <script>
         let searchFocus = false;
         document.querySelector('.search').addEventListener('focus', (event) => {
-            document.querySelector('.filters-bar').classList.remove('position-sticky')
-            document.querySelector('.filters-bar').classList.add('position-relative')
-            searchFocus = true;
+            if (!document.querySelector('.filters-bar').classList.contains('filters-bar-filled')) {
+                document.querySelector('.filters-bar').classList.remove('position-sticky')
+                document.querySelector('.filters-bar').classList.add('position-relative')
+                searchFocus = true;
+            }
         });
 
         document.querySelector('.search').addEventListener('blur', (event) => {
@@ -166,14 +168,38 @@
             searchFocus = false;
         });
 
+        document.querySelector('#filters-wrapper-trigger').addEventListener('change', (event) => {
+            handleReadMoreExpansion(event.target)
+        })
+
+        const handleReadMoreExpansion = (target) => {
+            if (document.querySelector('.filters-bar-filled') === null) {
+                return;
+            }
+
+            if (target.checked) {
+                document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
+                    switchReadMore.style.pointerEvents = 'all'
+                })
+                document.querySelector('.filters-bar-filled').style.pointerEvents = 'all'
+            } else {
+                document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
+                    switchReadMore.style.pointerEvents = 'none'
+                })
+                document.querySelector('.filters-bar-filled').style.pointerEvents = 'none'
+            }
+        }
+
         const onStickyChangeBackground = (event) => {
             if (event[0].isIntersecting) {
                 document.querySelector('.filters-bar').classList.remove('filters-bar-filled')
+                handleReadMoreExpansion(document.querySelector('#filters-wrapper-trigger'))
             } else {
                 if (scrolling) {
                     document.querySelector('.filters-bar').classList.add('position-sticky')
                     document.querySelector('.filters-bar').classList.remove('position-relative')
                     document.querySelector('.filters-bar').classList.add('filters-bar-filled')
+                    handleReadMoreExpansion(document.querySelector('#filters-wrapper-trigger'))
                 }
             }
         }
