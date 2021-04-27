@@ -828,12 +828,10 @@ select.filter {
         background-color: rgba(255, 255, 255, 0);
         box-shadow: none;
         position: relative;
-        transition: .15s ease;
     }
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper {
         background-color: white;
         box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-        transition: .15s ease;
     }
     .filters-bar-filled .read-more-trigger {
         cursor: pointer;
