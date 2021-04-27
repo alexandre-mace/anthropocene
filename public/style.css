@@ -753,8 +753,6 @@ select.filter {
     max-width: 100%;
 }
 .filters-bar {
-    position: -webkit-sticky; /* Safari & IE */
-    position: sticky;
     top: 0;
     z-index: 1;
     width: calc(100% - 30px);
@@ -817,16 +815,25 @@ select.filter {
         width: 100%;
         min-width: auto;
     }
+    .reset {
+        padding: 9px 17px;
+    }
+    .filters-bar {
+        width: 100%;
+    }
+    .filters-bar-transparent-block {
+        height: 15px;
+    }
     .filters-bar-filled .filters-wrapper {
         background-color: rgba(255, 255, 255, 0);
         box-shadow: none;
         position: relative;
-        transition: .45s ease;
+        transition: .15s ease;
     }
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper {
         background-color: white;
         box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-        transition: .45s ease;
+        transition: .15s ease;
     }
     .filters-bar-filled .read-more-trigger {
         cursor: pointer;
@@ -834,16 +841,14 @@ select.filter {
         border-radius: 25px;
         border: none;
         display: inline-block;
-        color: #2e2e2e;
         text-decoration: none;
-        background-color: #F2F2F2;
         box-shadow: rgba(17, 12, 46, 0.20) 0px 38px 80px 0px;
     }
     .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-trigger:before {
         content: 'Voir les filtres';
     }
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-trigger:before {
-        content: 'Fermer';
+        content: 'Appliquer / Fermer';
     }
     .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-target {
         opacity: 0;

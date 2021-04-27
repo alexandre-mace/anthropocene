@@ -16,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid mb-3 mb-md-5 mt-1 mt-md-4 filters-bar">
+        <div class="container-fluid mb-3 mb-md-5 mt-1 mt-md-4 filters-bar position-sticky">
             <div class="row">
-                <div class="col filters-bar-transparent-block" style=""></div>
+                <div class="col filters-bar-transparent-block d-none d-md-block" style=""></div>
             </div>
             <input type="checkbox" class="read-more-state" id="filters-wrapper-trigger" />
             <div class="row filters-wrapper">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col filters-bar-close">
                     <div class="col justify-content-center text-center">
-                        <label for="filters-wrapper-trigger" class="read-more-trigger"></label>
+                        <label for="filters-wrapper-trigger" class="read-more-trigger main-action"></label>
                     </div>
                 </div>
             </div>
@@ -151,10 +151,21 @@
     </script>
     {% include './listUtils/multiselectInitializer.html.twig' %}
     <script>
+        document.querySelector('.search').addEventListener('focus', (event) => {
+            document.querySelector('.filters-bar').classList.remove('position-sticky')
+        });
+
+        document.querySelector('.search').addEventListener('blur', (event) => {
+            document.querySelector('.filters-bar').classList.add('position-sticky')
+        });
+
         const onStickyChangeBackground = (event) => {
             if (event[0].isIntersecting) {
                 document.querySelector('.filters-bar').classList.remove('filters-bar-filled')
             } else {
+                if (scrolling) {
+                    document.querySelector('.filters-bar').classList.add('position-sticky')
+                }
                 document.querySelector('.filters-bar').classList.add('filters-bar-filled')
             }
         }
