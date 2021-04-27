@@ -173,11 +173,7 @@
         })
 
         const handleReadMoreExpansion = (target) => {
-            if (document.querySelector('.filters-bar-filled') === null) {
-                return;
-            }
-
-            if (target.checked) {
+            if (target.checked || document.querySelector('.filters-bar-filled') === null) {
                 document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
                     switchReadMore.style.pointerEvents = 'all'
                 })
