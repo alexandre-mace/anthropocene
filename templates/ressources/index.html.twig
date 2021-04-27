@@ -151,12 +151,17 @@
     </script>
     {% include './listUtils/multiselectInitializer.html.twig' %}
     <script>
+        let searchFocus = false;
         document.querySelector('.search').addEventListener('focus', (event) => {
             document.querySelector('.filters-bar').classList.remove('position-sticky')
+            document.querySelector('.filters-bar').classList.add('position-relative')
+            searchFocus = true;
         });
 
         document.querySelector('.search').addEventListener('blur', (event) => {
             document.querySelector('.filters-bar').classList.add('position-sticky')
+            document.querySelector('.filters-bar').classList.remove('position-relative')
+            searchFocus = false;
         });
 
         const onStickyChangeBackground = (event) => {
@@ -165,8 +170,9 @@
             } else {
                 if (scrolling) {
                     document.querySelector('.filters-bar').classList.add('position-sticky')
+                    document.querySelector('.filters-bar').classList.remove('position-relative')
+                    document.querySelector('.filters-bar').classList.add('filters-bar-filled')
                 }
-                document.querySelector('.filters-bar').classList.add('filters-bar-filled')
             }
         }
         const observer = new IntersectionObserver(onStickyChangeBackground, {
