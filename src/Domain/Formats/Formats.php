@@ -33,6 +33,11 @@ final class Formats
                 'label' => 'Fait',
                 'value' => 'Fait',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/speech-balloon_1f4ac.png',
+            ],
+            [
+                'label' => 'Outil',
+                'value' => 'Outil',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/microscope_1f52c.png',
             ]
         ];
     }
