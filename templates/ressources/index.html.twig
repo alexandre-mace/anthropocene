@@ -177,7 +177,9 @@
                 document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
                     switchReadMore.style.pointerEvents = 'all'
                 })
-                document.querySelector('.filters-bar-filled').style.pointerEvents = 'all'
+                if (document.querySelector('.filters-bar-filled')) {
+                    document.querySelector('.filters-bar-filled').style.pointerEvents = 'all'
+                }
             } else {
                 document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
                     switchReadMore.style.pointerEvents = 'none'
