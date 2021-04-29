@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Domain\Categories\Categories;
+use App\Domain\Formats\Formats;
 use App\Entity\Ressource;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -25,18 +26,15 @@ class RessourceCrudController extends AbstractCrudController
         foreach (Categories::getAll() as $category) {
             $categories[$category['label']] = $category['label'];
         }
+        $formats = [];
+        foreach (Formats::getAll() as $format) {
+            $formats[$format['label']] = $format['label'];
+        }
         return [
             TextField::new('author'),
             TextField::new('title'),
             TextField::new('link'),
-            ChoiceField::new('type')->setChoices([
-                'Interview' => 'Interview',
-                'Video' => 'Video',
-                'Infographie' => 'Infographie',
-                'Article' => 'Article',
-                'Fait' => 'Fait',
-                'Livre' => 'Livre',
-            ]),
+            ChoiceField::new('type')->setChoices($formats),
             ChoiceField::new('themes')->setChoices($categories)->setFormTypeOption('multiple', true),
 //            TextAreaField::new('imageFile')->setFormType(VichFileType::class, [
 //                            'delete_label' => 'supprimer?'
