@@ -38,6 +38,11 @@ final class Formats
                 'label' => 'Outil',
                 'value' => 'Outil',
                 'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/microscope_1f52c.png',
+            ],
+            [
+                'label' => 'Article',
+                'value' => 'Article',
+                'img' => 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/page-with-curl_1f4c3.png',
             ]
         ];
     }
