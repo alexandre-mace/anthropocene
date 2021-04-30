@@ -177,6 +177,14 @@
         })
 
         const handleReadMoreExpansion = (target) => {
+            const screenWidth = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+            if (screenWidth > 768) {
+                return;
+            }
+
             if (target.checked || document.querySelector('.filters-bar-filled') === null) {
                 document.querySelectorAll('.read-more-target').forEach((switchReadMore) => {
                     switchReadMore.style.pointerEvents = 'all'
