@@ -97,6 +97,7 @@
             scrolling = true;
         });
 
+        console.log(maxPage)
         setInterval(() => {
             if (scrolling) {
                 const container = document.querySelector(".ressources-wrapper");
@@ -106,6 +107,7 @@
                 const containerListY = containerList.offsetHeight;
                 const offsetY = 15;
 
+                console.log(containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage)
                 if (containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage) {
                     document.querySelector('.list-loader').classList.add('d-block')
                     setTimeout(() => {
