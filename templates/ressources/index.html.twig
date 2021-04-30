@@ -89,6 +89,8 @@
 
         let scrolling = false;
         let page = 1;
+        console.log(list.items.length)
+        console.log(itemsPerPage)
         let maxPage = Math.ceil(list.items.length / itemsPerPage);
         const scrollThrottle = 250;
         const loadingTime = 700;
