@@ -1,3 +1,11 @@
 <div class="col-12 mb-3">
-    <input class="search w-100" placeholder="Rechercher" />
+    <input id="search-bar" class="search w-100" placeholder="Rechercher" />
 </div>
+
+<script>
+    document.querySelector('#search-bar').addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            document.querySelector('#search-bar').blur()
+        }
+    });
+</script>
