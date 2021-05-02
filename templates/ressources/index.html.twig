@@ -74,7 +74,7 @@
     <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
     {% include './listUtils/lazyLoadYoutubeScript.html.twig' %}
     <script>
-        const itemsPerPage = 70;
+        const itemsPerPage = 50;
         const options = {
             pagination: true,
             page: itemsPerPage,
@@ -104,9 +104,11 @@
                 const scrollPosY = window.scrollY;
                 const containerList = document.querySelector(".ressources-wrapper .list");
                 const containerListY = containerList.offsetHeight;
+                const height = window.innerHeight|| document.documentElement.clientHeight||
+                    document.body.clientHeight;
                 const offsetY = 15;
 
-                if (containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage) {
+                if (containerPosY < 0 && containerPosY + containerListY - height + offsetY < 0 && page < maxPage) {
                     document.querySelector('.list-loader').classList.add('d-block')
                     setTimeout(() => {
                         page++;
