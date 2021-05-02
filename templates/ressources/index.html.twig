@@ -74,12 +74,12 @@
     <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
     {% include './listUtils/lazyLoadYoutubeScript.html.twig' %}
     <script>
-        const itemsPerPage = 50;
+        const itemsPerPage = 70;
         const options = {
             pagination: true,
             page: itemsPerPage,
             searchDelay: 500,
-            indexAsync: true,
+            indexAsync: false,
             valueNames: ['author', 'title', 'type',  { name: 'theme', attr: 'data-theme' }],
         };
 
@@ -89,8 +89,6 @@
 
         let scrolling = false;
         let page = 1;
-        console.log(list.items.length)
-        console.log(itemsPerPage)
         let maxPage = Math.ceil(list.items.length / itemsPerPage);
         const scrollThrottle = 250;
         const loadingTime = 700;
@@ -99,7 +97,6 @@
             scrolling = true;
         });
 
-        console.log(maxPage)
         setInterval(() => {
             if (scrolling) {
                 const container = document.querySelector(".ressources-wrapper");
@@ -109,7 +106,6 @@
                 const containerListY = containerList.offsetHeight;
                 const offsetY = 15;
 
-                console.log(containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage)
                 if (containerPosY < 0 && containerPosY + containerListY - offsetY > 0 && page < maxPage) {
                     document.querySelector('.list-loader').classList.add('d-block')
                     setTimeout(() => {
