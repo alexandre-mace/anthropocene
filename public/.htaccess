@@ -20,6 +20,7 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteCond %{HTTPS} ==on
     RewriteCond %{HTTP_HOST} !^(www)\.
     RewriteRule ^(.*?)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
