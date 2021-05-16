@@ -5,9 +5,14 @@
     <div class="card-title mb-4 title">
         {{ report.title|capitalize }}
     </div>
-        {% for reportLink in report.links %}
+        {% if report.fullReportLink %}
             <div class="card-link mb-3">
-                <a class="main-action" target="_blank" href="{{ reportLink.link }}">{{ reportLink.title }}</a>
+                <a class="main-action" target="_blank" href="{{ report.fullReportLink }}">Rapport complet</a>
             </div>
-        {% endfor %}
+        {% endif %}
+        {% if report.lightReportLink %}
+            <div class="card-link mb-3">
+                <a class="main-action" target="_blank" href="{{ report.lightReportLink }}">Synthèse</a>
+            </div>
+        {% endif %}
 </div>

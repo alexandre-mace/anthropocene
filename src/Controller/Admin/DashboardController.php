@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Message;
+use App\Entity\Report;
 use App\Entity\Ressource;
+use App\Repository\MessageRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -13,6 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+    private $messageRepository;
+
+    public function __construct(MessageRepository $messageRepository)
+    {
+        $this->messageRepository = $messageRepository;
+    }
+
     /**
      * @Route("/admin", name="admin")
      */
@@ -31,9 +40,13 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        $unseenMessages = $this->messageRepository->findBy(['seen' => false]);
+
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Ressources', 'fa fa-file-text', Ressource::class);
+        yield MenuItem::linkToCrud('Rapports', 'fa fa-file-text', Report::class);
         yield MenuItem::linktoRoute('Export ressources', 'fa fa-download', 'admin_export_ressources');
-        yield MenuItem::linkToCrud('Messages', 'fa fa-inbox', Message::class);
+        yield MenuItem::linktoRoute('Export rapports', 'fa fa-download', 'admin_export_reports');
+        yield MenuItem::linkToCrud('Messages' . (count($unseenMessages) !== 0 ? ' (' .count($unseenMessages) . ')': ''), 'fa fa-inbox', Message::class);
     }
 }

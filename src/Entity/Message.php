@@ -27,6 +27,11 @@ class Message
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default": 0})
+     */
+    private $seen = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Message
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getSeen(): ?bool
+    {
+        return $this->seen;
+    }
+
+    public function setSeen(?bool $seen): self
+    {
+        $this->seen = $seen;
 
         return $this;
     }
