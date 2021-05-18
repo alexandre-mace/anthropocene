@@ -862,13 +862,15 @@ select.filter {
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-trigger:before {
         content: 'Appliquer / Fermer';
     }
-    .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-target {
+    .filters-bar-filled .read-more-state ~ .filters-wrapper .read-more-target * {
         opacity: 0;
     }
     .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-target {
-        opacity: 1;
         font-size: inherit;
         max-height: 999em;
+    }
+    .filters-bar-filled .read-more-state:checked ~ .filters-wrapper .read-more-target * {
+        opacity: 1;
     }
     .filters-bar-filled .read-more-state ~ .filters-wrapper .filters-bar-close {
         position: absolute;
