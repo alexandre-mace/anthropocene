@@ -187,6 +187,10 @@ footer a {
 .page-title {
     font-size: calc(23px + 2.7vw);
 }
+.personalization-title {
+    font-size: calc(23px + 1vw);
+    font-family: 'tt_normsbold', sans-serif;
+}
 .main-line {
     font-size: calc(16px + 1.1vw);
 }
