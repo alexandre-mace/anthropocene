@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Domain\Categories\Categories;
+use App\Domain\Formats\Formats;
 use App\Repository\RessourceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +18,8 @@ class RessourcesController extends AbstractController
 
         return $this->render('ressources/index.html.twig', [
             'ressources' => $ressources,
+            'formats'    => Formats::getAll(),
+            'themes'     => Categories::getAll(),
         ]);
     }
 }

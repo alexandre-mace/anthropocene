@@ -8,22 +8,29 @@
     }
 
     // fill select options
-    let themes = [];
-    list.items.forEach(function(item){
-        if (item.values().theme !== '') {
-            if (item.values().theme.includes(' ')) {
-                const splittedThemes = item.values().theme.split(' ');
-                splittedThemes.forEach((splittedTheme) => {
-                    themes.push(splittedTheme)
-                })
-            } else {
-                themes.push(item.values().theme)
-            }
-        }
-    });
-    [...new Set(themes)].forEach(function(item){
+    // let themes = [];
+    // list.items.forEach(function(item){
+    //     if (item.values().theme !== '') {
+    //         if (item.values().theme.includes(' ')) {
+    //             const splittedThemes = item.values().theme.split(' ');
+    //             splittedThemes.forEach((splittedTheme) => {
+    //                 themes.push(splittedTheme)
+    //             })
+    //         } else {
+    //             themes.push(item.values().theme)
+    //         }
+    //     }
+    // });
+    // [...new Set(themes)].forEach(function(item){
+    //     const themeSelect = document.getElementById('select-multiple-theme');
+    //     themeSelect.options[themeSelect.options.length] = new Option(item, item);
+    // });
+
+    let themes = {{ themes|json_encode|raw }};
+
+    themes.forEach(function(item){
         const themeSelect = document.getElementById('select-multiple-theme');
-        themeSelect.options[themeSelect.options.length] = new Option(item, item);
+        themeSelect.options[themeSelect.options.length] = new Option(item.value, item.value);
     });
 
     const themeSelector = document.getElementById('select-multiple-theme');

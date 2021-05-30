@@ -27,7 +27,6 @@
                         {% include './listUtils/search.html.twig' %}
                     </div>
                     <div class="row align-items-end read-more-target fadeInLoad-filters">
-                        {% include './listUtils/authorFilter.html.twig' %}
                         {% include './listUtils/typeFilter.html.twig' %}
                         {% include './listUtils/themeFilter.html.twig' %}
                         {% include './listUtils/reset.html.twig' %}
@@ -80,7 +79,7 @@
             page: itemsPerPage,
             searchDelay: 500,
             indexAsync: false,
-            valueNames: ['author', 'title', 'type',  { name: 'theme', attr: 'data-theme' }],
+            valueNames: ['title', 'type',  { name: 'theme', attr: 'data-theme' }],
         };
 
         const list = new List('ressources', options);
@@ -138,16 +137,12 @@
         const activeFilters = [];
     </script>
     {% include './listUtils/filterList.html.twig' %}
-    {% include './listUtils/authorScripts.html.twig' %}
     {% include './listUtils/typeScripts.html.twig' %}
     {% include './listUtils/themeScripts.html.twig' %}
     {% include './listUtils/loadPersonalizedSearch.html.twig' %}
     <script>
         new MultipleSelect('#select-multiple-format', {
             placeholder: 'Filtre par format',
-        })
-        new MultipleSelect('#select-multiple-author', {
-            placeholder: 'Filtre par auteur',
         })
         new MultipleSelect('#select-multiple-theme', {
             placeholder: 'Filtre par thème',

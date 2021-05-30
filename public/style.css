@@ -973,7 +973,7 @@ select.filter {
         background-size: 35%;
     }
     .ressources::before {
-        background-size: 50%;
+        background-size: 37%;
         background-position: top 0 right;
     }
     .infos::before {

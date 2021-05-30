@@ -31,8 +31,8 @@
                 <div class="row my-3 px-2 px-md-0 justify-content-center">
                     {% for category in categories %}
                         <div class="card-select-wrapper col-auto px-1 px-md-3 mb-3 mb-md-4">
-                            <input type="checkbox" id="{{ category.value }}" value="{{ category.value }}" />
-                            <label for="{{ category.value }}" class="card-select">
+                            <input type="checkbox" id="{{ category.value }}-category" value="{{ category.value }}" />
+                            <label for="{{ category.value }}-category" class="card-select">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
                                     <div class="card-select-emoji-wrapper">
                                         <img src="{{ category.img }}" alt="{{ 'Catégorie ' ~ category.label }}">
@@ -42,7 +42,6 @@
                                     </div>
                                 </div>
                             </label>
-                            </li>
                         </div>
                     {% endfor %}
                 </div>
@@ -69,8 +68,8 @@
                 <div class="row my-3 px-2 px-md-0 justify-content-center">
                     {% for format in formats %}
                         <div class="card-select-wrapper col-auto px-1 px-md-3 mb-3 mb-md-4">
-                            <input type="checkbox" id="{{ format.value }}" value="{{ format.value }}" />
-                            <label for="{{ format.value }}" class="card-select">
+                            <input type="checkbox" id="{{ format.value }}-media" value="{{ format.value }}" />
+                            <label for="{{ format.value }}-media" class="card-select">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
                                     <div class="card-select-emoji-wrapper">
                                         <img src="{{ format.img }}" alt="{{ 'Catégorie ' ~ format.label }}">
