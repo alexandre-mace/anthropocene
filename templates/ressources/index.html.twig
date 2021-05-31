@@ -71,7 +71,6 @@
 {% block bottom_scripts %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
     <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
-    {% include './listUtils/lazyLoadYoutubeScript.html.twig' %}
     <script>
         const itemsPerPage = 50;
         const options = {
@@ -83,46 +82,10 @@
         };
 
         const list = new List('ressources', options);
-        list.add(() => {
-        });
 
-        let scrolling = false;
+         let scrolling = false;
         let page = 1;
         let maxPage = Math.ceil(list.items.length / itemsPerPage);
-        const scrollThrottle = 250;
-        const loadingTime = 700;
-
-        window.addEventListener('scroll', function(e) {
-            scrolling = true;
-        });
-
-        setInterval(() => {
-            if (scrolling) {
-                const container = document.querySelector(".ressources-wrapper");
-                const containerPosY = container.getBoundingClientRect().top;
-                const scrollPosY = window.scrollY;
-                const containerList = document.querySelector(".ressources-wrapper .list");
-                const containerListY = containerList.offsetHeight;
-                const height = window.innerHeight|| document.documentElement.clientHeight||
-                    document.body.clientHeight;
-                const offsetY = 15;
-
-                if (containerPosY < 0 && containerPosY + containerListY - height + offsetY < 0 && page < maxPage) {
-                    document.querySelector('.list-loader').classList.add('d-block')
-                    setTimeout(() => {
-                        page++;
-                        list.show(0, page * itemsPerPage);
-                        document.querySelector('.list-loader').classList.remove('d-block')
-                        loadYtbVideos()
-                    }, loadingTime)
-                }
-                else if (scrollPosY + containerPosY < containerPosY + offsetY) {
-                    // reached top
-                }
-
-                scrolling = false;
-            }
-        }, scrollThrottle);
 
         document.querySelector("#ressources-total").textContent = list.matchingItems.length + ' ressouces trouvées'
 
@@ -139,7 +102,6 @@
     {% include './listUtils/filterList.html.twig' %}
     {% include './listUtils/typeScripts.html.twig' %}
     {% include './listUtils/themeScripts.html.twig' %}
-    {% include './listUtils/loadPersonalizedSearch.html.twig' %}
     <script>
         new MultipleSelect('#select-multiple-format', {
             placeholder: 'Filtre par format',
@@ -149,6 +111,9 @@
         })
     </script>
     {% include './listUtils/multiselectInitializer.html.twig' %}
+    {% include './listUtils/loadPersonalizedSearch.html.twig' %}
+    {% include './listUtils/lazyLoadYoutubeScript.html.twig' %}
+
     <script>
         let searchFocus = false;
         document.querySelector('.search').addEventListener('focus', (event) => {
@@ -212,6 +177,41 @@
         });
 
         observer.observe(document.querySelector('.filters-bar'));
+
+        const scrollThrottle = 250;
+        const loadingTime = 700;
+
+        window.addEventListener('scroll', function(e) {
+            scrolling = true;
+        });
+
+        setInterval(() => {
+            if (scrolling) {
+                const container = document.querySelector(".ressources-wrapper");
+                const containerPosY = container.getBoundingClientRect().top;
+                const scrollPosY = window.scrollY;
+                const containerList = document.querySelector(".ressources-wrapper .list");
+                const containerListY = containerList.offsetHeight;
+                const height = window.innerHeight|| document.documentElement.clientHeight||
+                    document.body.clientHeight;
+                const offsetY = 15;
+
+                if (containerPosY < 0 && containerPosY + containerListY - height + offsetY < 0 && page < maxPage) {
+                    document.querySelector('.list-loader').classList.add('d-block')
+                    setTimeout(() => {
+                        page++;
+                        list.show(0, page * itemsPerPage);
+                        document.querySelector('.list-loader').classList.remove('d-block')
+                        loadYtbVideos()
+                    }, loadingTime)
+                }
+                else if (scrollPosY + containerPosY < containerPosY + offsetY) {
+                    // reached top
+                }
+
+                scrolling = false;
+            }
+        }, scrollThrottle);
     </script>
     <script>
         loadYtbVideos()

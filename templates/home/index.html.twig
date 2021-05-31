@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block extra_stylesheets %}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     {% include './listUtils/lazyLoadYoutubeStyle.html.twig' %}
     <div class="container-fluid main-section">
@@ -145,8 +149,72 @@
     </div>
 {% endblock %}
 {% block bottom_scripts %}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     {% include 'listUtils/lazyLoadYoutubeScript.html.twig' %}
     <script>
+        AOS.init();
         loadYtbVideos();
+        const personalizationNexts = document.getElementsByClassName('personalization-next');
+        if (personalizationNexts.length > 0) {
+            [...personalizationNexts].forEach((personalizationNext) => {
+                personalizationNext.addEventListener('click', (event) => {
+                    const checkboxes = document.querySelectorAll(".personalization-search input[type=checkbox]");
+                    [...checkboxes].forEach((checkbox) => {
+                        if (checkbox.checked) {
+                            themeFilters.push(checkbox.value);
+                        }
+                    })
+
+                    const personalization1 = document.getElementsByClassName('personalization-part-1')[0];
+                    personalization1.classList.remove('is-visible');
+
+                    setTimeout(() => {
+                        const personalization2 = document.getElementsByClassName('personalization-part-2')[0];
+                        personalization2.classList.add('is-visible');
+                        setTimeout(() => {
+                            personalization2.classList.add('fadeIn');
+                        }, 500)
+                    }, 0)
+                });
+            })
+        }
+
+        const personalizationExits = document.getElementsByClassName("personalization-exit");
+        if (personalizationExits.length > 0) {
+            [...personalizationExits].forEach((personalizationExit) => {
+                personalizationExit.addEventListener('click', (event) => {
+                    const personalization2 = document.getElementsByClassName('personalization-part-2')[0];
+                    personalization2.classList.remove('is-visible');
+
+                    setTimeout(() => {
+                        const personalization1 = document.getElementsByClassName('personalization-part-1')[0];
+                        personalization1.classList.add('is-visible');
+                        setTimeout(() => {
+                            personalization1.classList.add('fadeIn');
+                        }, 500)
+                    }, 0)
+                });
+            })
+        }
+
+        const personalizationFinal = document.getElementsByClassName('personalization-final')[0];
+        if (personalizationFinal) {
+            personalizationFinal.addEventListener('click', (event) => {
+                const checkboxes = document.querySelectorAll(".personalization-search-media input[type=checkbox]");
+                [...checkboxes].forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        mediaFilters.push(checkbox.value);
+                    }
+                })
+
+                if (themeFilters.length > 0 && !themeFilters.includes('Tout')) {
+                    localStorage.setItem('themeFilters', themeFilters.join(','));
+                }
+                if (mediaFilters.length > 0 && !mediaFilters.includes('Tout')) {
+                    localStorage.setItem('mediaFilters', mediaFilters.join(','));
+                }
+                window.location.assign('/ressources')
+            })
+        }
     </script>
 {% endblock %}
