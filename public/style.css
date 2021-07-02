@@ -381,7 +381,7 @@ button:focus, input:focus {
     background-size: 36%;
 }
 .ressources::before {
-    background-image: url('./img/read.png');
+    background-image: url('./img/read_min.png');
     background-size: 40%;
     background-position: top -5% right;
 }
