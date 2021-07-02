@@ -32,7 +32,7 @@
         {% if ressource.imageLink is not null %}
             <div class="mt-4">
                 <div class="ressource-img-wrapper">
-                    <img class="ressource-img glightbox" src="{{ ressource.imageLink }}" alt="{{ ressource.title }}">
+                    <img class="ressource-img glightbox" loading="lazy" src="{{ ressource.imageLink }}" alt="{{ ressource.title }}">
                 </div>
             </div>
         {% endif %}
