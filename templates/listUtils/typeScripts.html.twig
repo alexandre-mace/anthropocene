@@ -8,17 +8,6 @@
         });
     }
 
-    // fill select options
-    // let types = [];
-    // console.log(types)
-    // list.items.forEach(function(item){
-    //     types.push(item.values().type)
-    // });
-    // [...new Set(types)].forEach(function(item){
-    //     const typeSelect = document.getElementById('select-multiple-format');
-    //     typeSelect.options[typeSelect.options.length] = new Option(item, item);
-    // });
-
     let types = {{ formats|json_encode|raw }};
 
     types.forEach(function(item){
