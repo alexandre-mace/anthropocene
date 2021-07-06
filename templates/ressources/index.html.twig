@@ -36,7 +36,7 @@
                     document.querySelector(".loading-page").classList.add('d-none');
                 }, 300)
             }
-        }, 12);
+        }, 10);
         // });
     </script>
     <div class="ressources page-with-background" id="ressources">
@@ -63,6 +63,19 @@
                         {% include './listUtils/typeFilter.html.twig' %}
                         {% include './listUtils/themeFilter.html.twig' %}
                         {% include './listUtils/reset.html.twig' %}
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
+                        <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
+                        {% include './listUtils/typeScripts.html.twig' %}
+                        {% include './listUtils/themeScripts.html.twig' %}
+                        <script>
+                            new MultipleSelect('#select-multiple-format', {
+                                placeholder: 'Filtre par format',
+                            })
+                            new MultipleSelect('#select-multiple-theme', {
+                                placeholder: 'Filtre par thème',
+                            })
+                        </script>
+                        {% include './listUtils/multiselectInitializer.html.twig' %}
                     </div>
                 </div>
                 <div class="col filters-bar-close">
@@ -104,19 +117,7 @@
 {% endblock %}
 
 {% block high_bottom_scripts %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
-    <script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
-    {% include './listUtils/typeScripts.html.twig' %}
-    {% include './listUtils/themeScripts.html.twig' %}
-    <script>
-        new MultipleSelect('#select-multiple-format', {
-            placeholder: 'Filtre par format',
-        })
-        new MultipleSelect('#select-multiple-theme', {
-            placeholder: 'Filtre par thème',
-        })
-    </script>
-    {% include './listUtils/multiselectInitializer.html.twig' %}
+
 {% endblock %}
 {% block bottom_scripts %}
     <script>
