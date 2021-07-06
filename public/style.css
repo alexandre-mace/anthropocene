@@ -317,6 +317,36 @@ button:focus, input:focus {
     -webkit-transform: scaleX(-1)translate(10vw);
     transform: scaleX(-1)translate(10vw);
 }
+.color-black {
+    color: black !important;
+}
+.d-none {
+    display: none;
+}
+/* loader */
+.loading-page {
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 20;
+}
+.loading-page .counter {
+    position:fixed;
+    display: block;
+    color: white;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size: 3rem;
+    margin-top:-10px;
+    text-align: center;
+}
+.loading-page .counter div {
+    font-family: 'tt_normsbold', sans-serif;
+}
 /* card */
 .card {
     padding: 20px;

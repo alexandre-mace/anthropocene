@@ -4,8 +4,40 @@
 
 {% block body_extra_class %}class="overflow-x-visible"{% endblock %}
 
+{% block top_scripts %}
+    <script>
+        const ready = (callback) => {
+            if (document.readyState !== "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+
+        ready(() => {
+            document.querySelector(".loading-page .counter").classList.add('color-black');
+
+            let counter = 0;
+            let c = 0;
+            let i = setInterval(function() {
+                document.querySelector(".loading-page .counter span").innerHTML = c;
+                counter++;
+                c++;
+                if (counter === 101) {
+                    clearInterval(i);
+                    setTimeout(() => {
+                        document.querySelector(".loading-page").classList.add('d-none');
+                    }, 300)
+                }
+            }, 10);
+        });
+    </script>
+{% endblock %}
 {% block body %}
     {% include './listUtils/lazyLoadYoutubeStyle.html.twig' %}
+    <div class="loading-page">
+        <div class="counter">
+            <div>Les ressources</div>
+            <span>0</span>
+        </div>
+    </div>
     <div class="ressources page-with-background" id="ressources">
         <div class="container-fluid mt-3 mt-md-5 pt-3">
             <div class="row">
