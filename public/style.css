@@ -340,12 +340,13 @@ button:focus, input:focus {
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
-    font-size: 3rem;
+    font-size: calc(23px + 2.7vw);
     margin-top:-10px;
     text-align: center;
 }
 .loading-page .counter div {
     font-family: 'tt_normsbold', sans-serif;
+    white-space: nowrap;
 }
 /* card */
 .card {
