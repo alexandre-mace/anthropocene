@@ -7,8 +7,7 @@
     themeFilters.forEach((themeFilter) => {
         [...themeSelector.options].forEach((option) => {
             if (themeFilter === option.value.replace(/\s/g, "")) {
-                if (option.selected !== true) {
-                    option.setAttribute('selected', 'selected');
+                if (option.selected === true) {
                     filterTheme(option.value);
                     filterList();
                 }
@@ -24,8 +23,7 @@
     mediaFilters.forEach((mediaFilter) => {
         [...typeSelector.options].forEach((option) => {
             if (mediaFilter === option.value.replace(/\s/g, "")) {
-                if (option.selected !== true) {
-                    option.setAttribute('selected', 'selected');
+                if (option.selected === true) {
                     filterType(option.value);
                     filterList();
                 }

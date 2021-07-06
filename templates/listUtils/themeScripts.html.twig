@@ -9,9 +9,15 @@
 
     let themes = {{ themes|json_encode|raw }};
 
+    themeFilters = [];
+    if (localStorage.getItem('themeFilters')) {
+        themeFilters = localStorage.getItem('themeFilters').split(',');
+    }
+    const themeSelect = document.getElementById('select-multiple-theme');
+
     themes.forEach(function(item){
-        const themeSelect = document.getElementById('select-multiple-theme');
-        themeSelect.options[themeSelect.options.length] = new Option(item.value, item.value);
+        const shouldSelectOption = themeFilters.includes(item.value.replace(/\s/g, ""))
+        themeSelect.options[themeSelect.options.length] = new Option(item.value, item.value, shouldSelectOption, shouldSelectOption);
     });
 
     const themeSelector = document.getElementById('select-multiple-theme');

@@ -10,11 +10,17 @@
 
     let types = {{ formats|json_encode|raw }};
 
-    types.forEach(function(item){
-        const typeSelect = document.getElementById('select-multiple-format');
-        typeSelect.options[typeSelect.options.length] = new Option(item.value, item.value);
-    });
+    mediaFilters = [];
+    if (localStorage.getItem('mediaFilters')) {
+        mediaFilters = localStorage.getItem('mediaFilters').split(',');
+    }
 
+    const typeSelect = document.getElementById('select-multiple-format');
+
+    types.forEach(function(item){
+        const shouldSelectOption = mediaFilters.includes(item.value.replace(/\s/g, ""))
+        typeSelect.options[typeSelect.options.length] = new Option(item.value, item.value, shouldSelectOption, shouldSelectOption);
+    });
 
     const typeSelector = document.getElementById('select-multiple-format');
     typeSelector.addEventListener('change', (event) => {
