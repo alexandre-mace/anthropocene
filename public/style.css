@@ -541,7 +541,7 @@ select.filter {
 }
 .card-select-wrapper :checked + label {
     border: 2px solid black;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 .main-action {
     background-color: black;
@@ -550,7 +550,7 @@ select.filter {
     border: none;
 }
 .main-action:hover {
-    box-shadow: rgba(149, 157, 165, 1) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 1) 0 8px 24px;
     background-color: black;
     color: white;
 }
